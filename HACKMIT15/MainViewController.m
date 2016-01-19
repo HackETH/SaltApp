@@ -364,7 +364,9 @@
                 self.nextUrl = ((NSDictionary *)responseObject[@"next_url"]);
                 
                 NSMutableArray *newpart = [NSMutableArray arrayWithArray:(NSArray *)responseObject[@"restaurants"]];
-                for (int i = 0; i<[newpart count]; i++) {
+                for (int i = 0; i<[newpart count]; i++) {//123
+                    ((NSMutableArray *)newpart)[i] = [NSMutableDictionary dictionaryWithDictionary:newpart[i]];
+
                     newpart[i][@"offset"] = [NSNumber numberWithDouble:0.0];
                 }
                 self.placesArray= [self.placesArray arrayByAddingObjectsFromArray: newpart];
