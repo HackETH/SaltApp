@@ -178,7 +178,7 @@
             [self.tableView reloadData];
             [self.activityIndicator stopAnimating];
 
-        } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        } failure:^(AFHTTPRequestOperation *operation, NSError *error ) {
             NSLog(@"tError: %@", error);
             [self.activityIndicator stopAnimating];
         }];
