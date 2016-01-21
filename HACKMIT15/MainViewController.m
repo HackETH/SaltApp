@@ -161,6 +161,9 @@
     //Paris
 //    self.longitude = 2.328183;
   //  self.latitude = 48.865474;
+    //TEST FREUND ERIC
+    self.latitude = 48.081061;
+    self.longitude = 11.638880;
 
     
     
@@ -296,11 +299,14 @@
          {
              if(!error)
              {
+                 if ([times count]>0)
+                 {
                  UberTime *time = [times objectAtIndex:0];
                  dispatch_async(dispatch_get_main_queue(), ^{
                      cell.UberDriveTime.text = [NSString stringWithFormat:@"%d min", (int)time.estimate/60];
                      
                  });
+                 }
                  
              }
              else
