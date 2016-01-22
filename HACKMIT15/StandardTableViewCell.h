@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 #import <MapKit/MapKit.h>
 #import "MainImageScrollView.h"
+//@import GoogleMaps;
 
 
 @interface StandardTableViewCell : UITableViewCell <UIScrollViewDelegate>
@@ -24,11 +25,13 @@
 @property CLLocationDegrees lat;
 @property (weak) NSMutableArray *placesArray;
 @property NSMutableDictionary *cellData;
+//@property GMSMarker *marker;
 
 @property (nonatomic) int index;
 @property CLLocationDegrees lon;
 @property CLLocationDegrees melat;
 @property CLLocationDegrees melon;
+@property (weak, nonatomic) IBOutlet UIView *googleMapView;
 @property (weak, nonatomic) IBOutlet UIImageView *ratingImg;
 @property (weak, nonatomic) IBOutlet UIImageView *priceImg;
 @property (weak, nonatomic) IBOutlet UILabel *Type;

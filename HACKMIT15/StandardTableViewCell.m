@@ -14,7 +14,7 @@
 #import "UIImageView+AFNetworking.h"
 #import "SIAlertView.h"
 
-@implementation StandardTableViewCell
+@implementation StandardTableViewCell 
 
 - (void)awakeFromNib {
     // Initialization code
@@ -114,7 +114,7 @@
 
 
 -(void)scrollViewDidScroll:(UIScrollView *)scrollView{
-    NSLog(@"YO");
+    //NSLog(@"YO");
     if (self.newAllowed) {
         self.newAllowed = NO;
         NSString *address = [NSString stringWithFormat:@"http://salt-updatified.rhcloud.com/restaurants/%@/photos?max-id=%@",self.cellData[@"id"],self.lastId];

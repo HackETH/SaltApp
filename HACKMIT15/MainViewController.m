@@ -11,11 +11,16 @@
 #import "AFNetworking.h"
 #import "TLYShyNavBarManager.h"
 #import "SIAlertView.h"
+#import <Google/Analytics.h>
+//@import GoogleMaps;
 
 
 #import "MainViewController.h"
 #import "StandardTableViewCell.h"
 #import<CoreLocation/CoreLocation.h>
+#import <QuartzCore/QuartzCore.h>
+
+
 
 
 @interface MainViewController ()
@@ -32,10 +37,15 @@
 @property BOOL notfirstTime;
 @property NSString *sessionId;
 @property NSString *nextUrl;
+@property (weak, nonatomic) IBOutlet UIView *googleMapView;
 
 @end
 
 @implementation MainViewController
+//{
+//    GMSMapView *mapView_;
+//}
+
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -77,6 +87,16 @@
     }
     
     [self.locationManager startUpdatingLocation];
+}
+
+-(void)viewWillAppear:(BOOL)animated{
+    
+    [super viewWillAppear:animated];
+    
+    id<GAITracker> tracker = [[GAI sharedInstance] defaultTracker];
+    [tracker set:kGAIScreenName value:@"Main View"];
+    [tracker send:[[GAIDictionaryBuilder createScreenView] build]];
+    
 }
 
 
@@ -159,8 +179,8 @@
 //
 //
     //Paris
-//    self.longitude = 2.328183;
-  //  self.latitude = 48.865474;
+//    self.longitude = 11.638880;
+//    self.latitude = 48.081061;
 
     
     
@@ -188,7 +208,7 @@
 
 -(void)gotPlaces:(NSArray *)placesArray{
     self.placesCount = placesArray.count;
-    if (!self.placesCount) {
+    if (!self.placesCount || self.placesCount == 0) {
         UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"Nothing is open!" message:@"In your area currently nothing is open." delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
         [alert show];
     }
@@ -231,6 +251,11 @@
         
         [cell.mainImageScrollView setContentOffset:CGPointZero animated:NO];
         
+        
+        
+        
+        
+        
         cell.placesArray = self.placesArray;
         cell.cellData = [NSMutableDictionary dictionaryWithDictionary:self.placesArray[cellNum]];
         cell.index = cellNum;
@@ -254,12 +279,105 @@
         
         // Configure the cell...
         
+       
+     
+        
         cell.Type.text = cell.cellData[@"category"];
         cell.mapView.region = MKCoordinateRegionMakeWithDistance(self.currentLocation.coordinate, 10000, 10000);
         cell.melat = self.currentLocation.coordinate.latitude;
         cell.melon = self.currentLocation.coordinate.longitude;
         cell.lat = ((NSNumber *)cell.cellData[@"latitude"]).doubleValue;
         cell.lon = ((NSNumber *)cell.cellData[@"longitude"]).doubleValue;
+        
+        
+        //Google Maps
+        
+//        
+//        GMSCameraPosition *camera = [GMSCameraPosition cameraWithLatitude:47.377944
+//                                                                longitude:8.540198
+//                                                                     zoom:12];
+//        
+//        mapView_ = [GMSMapView mapWithFrame:CGRectMake(cell.googleMapView.frame.origin.x, cell.googleMapView.frame.origin.y, self.view.frame.size.width, 218.0) camera:camera];
+//        mapView_.myLocationEnabled =YES;
+//        
+//       
+//        cell.marker = [[GMSMarker alloc] init];
+//        cell.marker.position = [[CLLocation alloc] initWithLatitude:cell.lat longitude:cell.lon].coordinate;
+//        
+//        //        marker.title = type;
+//        //        marker.snippet = address;
+//        
+//        cell.marker.map = mapView_;
+//        
+//        [cell.googleMapView addSubview:mapView_];
+//        
+//        NSString *urlStr = [NSString stringWithFormat:@"https://maps.googleapis.com/maps/api/directions/json?origin=%f,%f&destination=%f,%f&directionsmode=walking&key=AIzaSyDSQaUuGuinBlpo9UEXBDBDWPL3T_50wg8",(double)cell.melat, (double)cell.melon,(double)cell.lat, (double)cell.lon];
+//        
+//        
+//        urlStr = [urlStr stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet URLQueryAllowedCharacterSet]];
+//        
+//        NSURL *url = [NSURL URLWithString:urlStr];
+//        
+//        NSURLRequest *request = [NSURLRequest requestWithURL:url];
+//        
+//        NSOperationQueue *operationQueue = [[NSOperationQueue alloc] init];
+//        
+//        /*
+//         * sendAsynchronousRequest:queue:completionHandler: - Loads the data for a URL request and executes a handler block on an operation queue when the request completes or fails.
+//         */
+//        
+//        [NSURLConnection sendAsynchronousRequest:request queue:operationQueue completionHandler:^(NSURLResponse *response, NSData *data, NSError *connectionError) {
+//            
+//            if (!connectionError) {
+//                
+//                NSString *responseStr = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
+//                NSDictionary *json = [NSJSONSerialization JSONObjectWithData:data
+//                                                                     options:NSJSONReadingMutableContainers
+//                                                                       error:nil];
+//                NSLog(@"%s - %d # responseStr = %@", __PRETTY_FUNCTION__, __LINE__, responseStr);
+//                NSArray *routes = json[@"routes"];
+//                NSDictionary *polylines = routes[0];
+//                NSArray *legs = polylines[@"legs"];
+//                
+//                
+//                NSDictionary *overviewPolylines = polylines[@"overview_polyline"];
+//                dispatch_async(dispatch_get_main_queue(), ^{
+//                    
+//                    UIEdgeInsets mapInsets = UIEdgeInsetsMake(30.0, 30.0, 30.0, 30.0);
+//                    mapView_.padding = mapInsets;
+//                    CLLocationCoordinate2D vancouver = CLLocationCoordinate2DMake([polylines[@"bounds"][@"northeast"][@"lat"] doubleValue] ,[polylines[@"bounds"][@"northeast"][@"lng"] doubleValue]);
+//                    CLLocationCoordinate2D calgary = CLLocationCoordinate2DMake([polylines[@"bounds"][@"southwest"][@"lat"] doubleValue] ,[polylines[@"bounds"][@"southwest"][@"lng"] doubleValue]);
+//                    GMSCoordinateBounds *bounds =
+//                    [[GMSCoordinateBounds alloc] initWithCoordinate:vancouver coordinate:calgary];
+//                    GMSCameraPosition *camera = [mapView_ cameraForBounds:bounds insets:UIEdgeInsetsZero];
+//                    mapView_.camera = camera;
+//                    mapInsets = UIEdgeInsetsMake(0.0, 0.0, 0.0, 0.0);
+//                    mapView_.padding = mapInsets;
+//                    //                [self.routeButton setImage:[UIImage imageNamed:@"startRoute"] forState:UIControlStateNormal];
+//                    //                self.routePlaned = true;
+//                    
+//                    GMSMutablePath *path = [GMSMutablePath pathFromEncodedPath:overviewPolylines[@"points"]];
+//                    GMSPolyline *polyline = [GMSPolyline polylineWithPath:path];
+//                    polyline.strokeWidth = 3.f;
+//                    polyline.geodesic = YES;
+//                    polyline.map = mapView_;
+//                    [cell.googleMapView addSubview:mapView_];
+//                    
+//                });
+//               
+//                
+//                
+//                
+//            }
+//            else {
+//                
+//            }
+//            
+//        }];
+
+        
+        
+        
         [[UberKit sharedInstance] setServerToken:@"jLLDmf_uJTlcBl6ne9c1gg-ovizJNhX0Lsa4TK1o"];
         
         [[UberKit sharedInstance] getPriceForTripWithStartLocation:self.currentLocation endLocation:[[CLLocation alloc] initWithLatitude:cell.lat longitude:cell.lon] withCompletionHandler:^(NSArray *resultsArray, NSURLResponse *response, NSError *error) {
@@ -279,7 +397,7 @@
                 if ([resultsArray count]==0) {
                     dispatch_async(dispatch_get_main_queue(), ^{
                         // do work here
-                        cell.UberPrice.text = @"Not Avaidable";
+                        cell.UberPrice.text = @"Not Avaiable";
                         
                     });
                 }else{
@@ -296,11 +414,22 @@
          {
              if(!error)
              {
-                 UberTime *time = [times objectAtIndex:0];
-                 dispatch_async(dispatch_get_main_queue(), ^{
-                     cell.UberDriveTime.text = [NSString stringWithFormat:@"%d min", (int)time.estimate/60];
+                 if (times.count > 0) {
+                     UberTime *time = [times objectAtIndex:0];
+                     dispatch_async(dispatch_get_main_queue(), ^{
+                         cell.UberDriveTime.text = [NSString stringWithFormat:@"%d min", (int)time.estimate/60];
+                         
+                     });
                      
-                 });
+                 }
+                 else {
+                  
+                     dispatch_async(dispatch_get_main_queue(), ^{
+                         cell.UberDriveTime.text = [NSString stringWithFormat:@"- min"];
+                         
+                     });
+                 }
+                 
                  
              }
              else
@@ -337,6 +466,36 @@
             //[imageView setImageWithURL:[NSURL URLWithString:picData[@"url"]]];
             [imageView setImageWithURL:[NSURL URLWithString:picData[@"url"]] placeholderImage:[UIImage imageNamed:@"Placeholder"]];
             
+//            UIImageView *userProfile = [[UIImageView alloc] init];
+//        
+//            [userProfile setImageWithURL:[NSURL URLWithString:picData[@"user"][@"profile_picture"]] placeholderImage:[UIImage imageNamed:@"Placeholder"]];
+//            [userProfile setFrame:CGRectMake(self.view.frame.size.width-60, self.view.frame.size.width-60, 40, 40)];
+//            userProfile.layer.cornerRadius = 20;
+//            [imageView addSubview:userProfile];
+//            
+//            UILabel *fullName = [[UILabel alloc] init];
+//            fullName.text = @"Peter Müller";
+//            fullName.textColor = [UIColor blackColor];
+//            fullName.textAlignment = NSTextAlignmentRight;
+////            fullName.shadowColor = [UIColor whiteColor];
+////            fullName.shadowOffset = CGSizeMake(4, 4);
+//            fullName.layer.shadowColor = (__bridge CGColorRef _Nullable)([UIColor whiteColor]);
+//            fullName.layer.shadowOffset = CGSizeMake(2.0, 2.0);
+//            fullName.layer.shadowRadius = 3.0;
+//            
+//            [fullName setFrame:CGRectMake(0, self.view.frame.size.width-60, self.view.frame.size.width-70, 20)];
+//            [imageView addSubview:fullName];
+//            
+//            UILabel *username = [[UILabel alloc] init];
+//            username.text = @"@mullerpeter";
+//            username.textColor = [UIColor blackColor];
+//            username.textAlignment = NSTextAlignmentRight;
+//            //            fullName.shadowColor = [UIColor whiteColor];
+//            //            fullName.shadowOffset = CGSizeMake(4, 4);
+//            
+//            [username setFrame:CGRectMake(0, self.view.frame.size.width-40, self.view.frame.size.width-70, 20)];
+//            [imageView addSubview:username];
+            
             UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
             [button setImage:[UIImage imageNamed:@"Flag Button"] forState:UIControlStateNormal]
             ;
@@ -355,10 +514,10 @@
         cell.mainImageScrollView.contentOffset = CGPointMake(((NSNumber *)cell.cellData[@"offset"]).doubleValue, 0.f);
         NSLog(@"init offset %@",(cell.cellData[@"offset"]));
         cell.lastId = ((NSArray *)cell.cellData[@"photos"])[((NSArray *)cell.cellData[@"photos"]).count-1][@"id"];
-        if (cellNum+1==self.placesCount) {
+        if (cellNum+3==self.placesCount) {
             //load new
             NSString *address = self.nextUrl;
-            
+               [self.activityIndicator startAnimating];
             AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
             [manager GET: address parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
                 self.nextUrl = ((NSDictionary *)responseObject[@"next_url"]);
@@ -401,8 +560,17 @@
 }
 
 
+
 -(void)uberButtonClicked:(UIButton*)sender
 {
+    
+    
+    id<GAITracker> tracker = [[GAI sharedInstance] defaultTracker];
+    
+    [tracker send:[[GAIDictionaryBuilder createEventWithCategory:@"ui_action"     // Event category (required)
+                                                          action:@"button_press"  // Event action (required)
+                                                           label:@"uber"          // Event label
+                                                           value:nil] build]];
     NSDictionary *tempdic = self.placesArray[sender.tag];
     if ([[UIApplication sharedApplication] canOpenURL:[NSURL URLWithString:@"uber://"]]) {
         // Do something awesome - the app is installed! Launch App.
@@ -428,7 +596,12 @@
 
 -(void)mapButtonClicked:(UIButton*)sender
 {
+    id<GAITracker> tracker = [[GAI sharedInstance] defaultTracker];
     
+    [tracker send:[[GAIDictionaryBuilder createEventWithCategory:@"ui_action"     // Event category (required)
+                                                          action:@"button_press"  // Event action (required)
+                                                           label:@"maps"          // Event label
+                                                           value:nil] build]];
     
     NSDictionary *tempdic = self.placesArray[sender.tag];
     

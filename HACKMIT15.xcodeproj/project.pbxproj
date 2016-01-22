@@ -47,6 +47,7 @@
 		D07B8E881BADF98B00FB2271 /* BrandonText-RegularItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = D07B8E7C1BADF98B00FB2271 /* BrandonText-RegularItalic.otf */; };
 		D07B8E891BADF98B00FB2271 /* BrandonText-Thin.otf in Resources */ = {isa = PBXBuildFile; fileRef = D07B8E7D1BADF98B00FB2271 /* BrandonText-Thin.otf */; };
 		D07B8E8A1BADF98B00FB2271 /* BrandonText-ThinItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = D07B8E7E1BADF98B00FB2271 /* BrandonText-ThinItalic.otf */; };
+		D07BBA031C526F04001B43B1 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = D07BBA021C526F04001B43B1 /* GoogleService-Info.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -129,6 +130,7 @@
 		D07B8E7C1BADF98B00FB2271 /* BrandonText-RegularItalic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "BrandonText-RegularItalic.otf"; sourceTree = "<group>"; };
 		D07B8E7D1BADF98B00FB2271 /* BrandonText-Thin.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "BrandonText-Thin.otf"; sourceTree = "<group>"; };
 		D07B8E7E1BADF98B00FB2271 /* BrandonText-ThinItalic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "BrandonText-ThinItalic.otf"; sourceTree = "<group>"; };
+		D07BBA021C526F04001B43B1 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -256,6 +258,7 @@
 		87A1BFC31BADCA0B00800EA1 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				D07BBA021C526F04001B43B1 /* GoogleService-Info.plist */,
 				87A1BFC41BADCA0B00800EA1 /* Info.plist */,
 				87A1BFC51BADCA0B00800EA1 /* main.m */,
 			);
@@ -408,6 +411,7 @@
 				D07B8E861BADF98B00FB2271 /* BrandonText-MediumItalic.otf in Resources */,
 				D07B8E831BADF98B00FB2271 /* BrandonText-Light.otf in Resources */,
 				D07B8E891BADF98B00FB2271 /* BrandonText-Thin.otf in Resources */,
+				D07BBA031C526F04001B43B1 /* GoogleService-Info.plist in Resources */,
 				D07B8E841BADF98B00FB2271 /* BrandonText-LightItalic.otf in Resources */,
 				D07B8E881BADF98B00FB2271 /* BrandonText-RegularItalic.otf in Resources */,
 				D07B8E8A1BADF98B00FB2271 /* BrandonText-ThinItalic.otf in Resources */,
