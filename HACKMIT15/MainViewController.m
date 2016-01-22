@@ -422,6 +422,7 @@
                      });
                      
                  }
+                 
                  else {
                   
                      dispatch_async(dispatch_get_main_queue(), ^{
@@ -442,7 +443,7 @@
         cell.mainImageScrollView.scrollEnabled = YES;
         cell.mainImageScrollView.pagingEnabled = YES;
         cell.mainImageScrollView.contentOffset = CGPointMake(0, 0);
-        int rating = [cell.cellData[@"rating"]intValue]/2+0.5;
+        int rating = [cell.cellData[@"rating"] intValue]/2+0.5;
         cell.ratingImg.image = [UIImage imageNamed:[NSString stringWithFormat:@"%dStars",rating]];
 //        if (rating>5 || rating<0) {
 //            cell.ratingImg.image = [UIImage imageNamed:@"0Stars"];
