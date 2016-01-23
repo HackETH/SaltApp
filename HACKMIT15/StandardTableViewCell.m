@@ -71,7 +71,7 @@
     [alertView addButtonWithTitle:@"Flag"
                              type:SIAlertViewButtonTypeDestructive
                           handler:^(SIAlertView *alert) {
-                              NSString *address = [NSString stringWithFormat:@"http://salt-updatified.rhcloud.com/restaurants/flag?id=%i",arc4random_uniform(1000000)];
+                              NSString *address = [NSString stringWithFormat:@"http://saltapp.rhcloud.com/restaurants/flag?id=%i",arc4random_uniform(1000000)];
                               
                               AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
                               [manager GET: address parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
@@ -117,7 +117,7 @@
     //NSLog(@"YO");
     if (self.newAllowed) {
         self.newAllowed = NO;
-        NSString *address = [NSString stringWithFormat:@"http://salt-updatified.rhcloud.com/restaurants/%@/photos?max-id=%@",self.cellData[@"id"],self.lastId];
+        NSString *address = [NSString stringWithFormat:@"http://saltapp.rhcloud.com/restaurants/%@/photos?max-id=%@",self.cellData[@"id"],self.lastId];
         NSLog(@"%@",address);
         
         AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
