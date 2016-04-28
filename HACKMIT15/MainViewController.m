@@ -12,6 +12,8 @@
 #import "TLYShyNavBarManager.h"
 #import "SIAlertView.h"
 #import <Google/Analytics.h>
+#import "PreviewViewController.h"
+
 //@import GoogleMaps;
 
 
@@ -41,7 +43,7 @@
 
 @end
 
-@implementation MainViewController
+@implementation MainViewController 
 //{
 //    GMSMapView *mapView_;
 //}
@@ -51,7 +53,13 @@
     [super viewDidLoad];
     
 
-    
+    if ([self.traitCollection
+         respondsToSelector:@selector(forceTouchCapability)] &&
+        (self.traitCollection.forceTouchCapability ==
+         UIForceTouchCapabilityAvailable))
+    {
+        [self registerForPreviewingWithDelegate:self sourceView:self.view];
+    }
     
     
     
@@ -99,6 +107,18 @@
     
 }
 
+- (UIViewController *)previewingContext:
+(id<UIViewControllerPreviewing>)previewingContext
+              viewControllerForLocation:(CGPoint)location {
+    
+    
+    UIStoryboard* storyboard = [UIStoryboard storyboardWithName:@"Main"
+                                                         bundle:nil];
+    PreviewViewController *viewController = [storyboard instantiateViewControllerWithIdentifier:@"preview"];
+    
+    return viewController;
+}
+
 
 
 - (void)refresh:(UIRefreshControl *)refreshControl {
@@ -110,7 +130,7 @@
     if (self.isFood) {
         
     
-    NSString *address = [NSString stringWithFormat:@"http://saltapp.rhcloud.com/restaurants/discover?lat=%f&long=%f",self.latitude,self.longitude];
+    NSString *address = [NSString stringWithFormat:@"http://salt-updatified.rhcloud.com/restaurants/discover?lat=%f&long=%f",self.latitude,self.longitude];
 
         AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
         [manager GET: address parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
@@ -127,7 +147,7 @@
     
     } else {
         
-        NSString *address = [NSString stringWithFormat:@"http://saltapp.rhcloud.com/restaurants/discover?lat=%f&long=%f",self.latitude,self.longitude];
+        NSString *address = [NSString stringWithFormat:@"http://salt-updatified.rhcloud.com/restaurants/discover?lat=%f&long=%f",self.latitude,self.longitude];
         
         AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
         [manager GET: address parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
@@ -184,7 +204,7 @@
 
     
     
-    NSString *address = [NSString stringWithFormat:@"http://saltapp.rhcloud.com/restaurants/discover?lat=%f&long=%f",self.latitude,self.longitude];
+    NSString *address = [NSString stringWithFormat:@"http://salt-updatified.rhcloud.com/restaurants/discover?lat=%f&long=%f",self.latitude,self.longitude];
     //NSLog(@"%f %f",self.latitude,self.longitude);
     if (!self.notfirstTime) {
         self.notfirstTime = YES;
@@ -687,7 +707,7 @@
     [alertView addButtonWithTitle:@"Flag"
                              type:SIAlertViewButtonTypeDestructive
                           handler:^(SIAlertView *alert) {
-                              NSString *address = [NSString stringWithFormat:@"http://saltapp.rhcloud.com/restaurants/flag?id=%i",arc4random_uniform(1000000)];
+                              NSString *address = [NSString stringWithFormat:@"http://salt-updatified.rhcloud.com/restaurants/flag?id=%i",arc4random_uniform(1000000)];
                               
                               AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
                               [manager GET: address parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
@@ -731,7 +751,7 @@
     
     //TODO - Adjust for Food
     
-    NSString *address = [NSString stringWithFormat:@"http://saltapp.rhcloud.com/restaurants/discover?lat=%f&long=%f",self.latitude,self.longitude];
+    NSString *address = [NSString stringWithFormat:@"http://salt-updatified.rhcloud.com/restaurants/discover?lat=%f&long=%f",self.latitude,self.longitude];
     
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
     [manager GET: address parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
@@ -755,7 +775,7 @@
     
     //TODO - Adjust for Drink
     
-    NSString *address = [NSString stringWithFormat:@"http://saltapp.rhcloud.com/restaurants/discover?lat=%f&long=%f",self.latitude,self.longitude];
+    NSString *address = [NSString stringWithFormat:@"http://salt-updatified.rhcloud.com/restaurants/discover?lat=%f&long=%f",self.latitude,self.longitude];
     
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
     [manager GET: address parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
