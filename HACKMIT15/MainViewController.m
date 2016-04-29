@@ -105,6 +105,16 @@
                                                                                               bundle:nil];
         PreviewViewController *viewController = [storyboard instantiateViewControllerWithIdentifier:@"preview"];
     
+    NSIndexPath *indexPath = [self.tableView
+                              indexPathForRowAtPoint:location];
+    
+    StandardTableViewCell *cell = [self.tableView cellForRowAtIndexPath:indexPath];
+    
+    
+        //[imageView setImageWithURL:[NSURL URLWithString:picData[@"url"]]];
+        [viewController.image1 setImageWithURL:[NSURL URLWithString:cell.cellData[@"photos"][0][@"url"]] placeholderImage:[UIImage imageNamed:@"Placeholder"]];
+    
+    
         return viewController;
     }
 
