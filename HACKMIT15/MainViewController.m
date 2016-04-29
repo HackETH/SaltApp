@@ -264,184 +264,11 @@
     return 0;
 }
 
--(void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    NSInteger cellNum = [indexPath indexAtPosition:1];
-    if (cellNum<self.placesCount && [cell isKindOfClass:[StandardTableViewCell class]]) {
-        //StandardTableViewCell*cell = [tableView dequeueReusableCellWithIdentifier: @"StandardCell" forIndexPath:indexPath];
-        NSLog(@"yo");
-        StandardTableViewCell *cell = (StandardTableViewCell *)cell;
-        [cell.mainImageScrollView setContentOffset:CGPointZero animated:NO];
-        
-        cell.placesArray = self.placesArray;
-        cell.cellData = [NSMutableDictionary dictionaryWithDictionary:self.placesArray[cellNum]];
-        cell.index = cellNum;
-        cell.name.text = cell.cellData[@"name"];
-        cell.distance.text = [NSString stringWithFormat:@"%@ m", cell.cellData[@"distance"]];
-        double distanceMiles = 0.000621371*[cell.cellData[@"distance"] intValue];
-        
-        //Distance in Miles:
-        cell.distance.text = [NSString stringWithFormat:@"%.1f mi", distanceMiles];
-        
-        cell.UberTitle.font = [UIFont fontWithName:@"BrandonText-Medium" size:18];
-        cell.UberPickUpTime.font = [UIFont fontWithName:@"BrandonText-Light" size:13];
-        cell.UberDriveTime.font = [UIFont fontWithName:@"BrandonText-Medium" size:13];
-        cell.UberPrice.font = [UIFont fontWithName:@"BrandonText-Light" size:13];
-        
-        cell.name.font = [UIFont fontWithName:@"BrandonText-Light" size:18];
-        cell.distance.font = [UIFont fontWithName:@"BrandonText-Regular" size:14];
-        cell.Type.font = [UIFont fontWithName:@"BrandonText-Regular" size:14];
-        cell.open.font = [UIFont fontWithName:@"BrandonText-Regular" size:14];
-        cell.clipsToBounds = YES;
-        
-        // Configure the cell...
-        
-        cell.Type.text = cell.cellData[@"category"];
-        cell.mapView.region = MKCoordinateRegionMakeWithDistance(self.currentLocation.coordinate, 10000, 10000);
-        cell.melat = self.currentLocation.coordinate.latitude;
-        cell.melon = self.currentLocation.coordinate.longitude;
-        cell.lat = ((NSNumber *)cell.cellData[@"latitude"]).doubleValue;
-        cell.lon = ((NSNumber *)cell.cellData[@"longitude"]).doubleValue;
-        [[UberKit sharedInstance] setServerToken:@"jLLDmf_uJTlcBl6ne9c1gg-ovizJNhX0Lsa4TK1o"];
-        
-        [[UberKit sharedInstance] getPriceForTripWithStartLocation:self.currentLocation endLocation:[[CLLocation alloc] initWithLatitude:cell.lat longitude:cell.lon] withCompletionHandler:^(NSArray *resultsArray, NSURLResponse *response, NSError *error) {
-            if (!error) {
-                int low = 100;
-                int high = 0;
-                NSString *estimate = @"$";
-                for (UberPrice *dic in resultsArray) {
-                    if (dic.lowEstimate<low) {
-                        low = dic.lowEstimate;
-                        estimate = dic.estimate;
-                    }
-                    if (dic.highEstimate>high) {
-                        high = dic.highEstimate;
-                    }
-                }
-                if ([resultsArray count]==0) {
-                    dispatch_async(dispatch_get_main_queue(), ^{
-                        // do work here
-                        cell.UberPrice.text = @"Not Avaidable";
-                        
-                    });
-                }else{
-                    
-                    dispatch_async(dispatch_get_main_queue(), ^{
-                        cell.UberPrice.text = estimate;
-                        
-                    });
-                    
-                }
-            }
-        }];
-        [[UberKit sharedInstance] getTimeForProductArrivalWithLocation:[[CLLocation alloc] initWithLatitude:cell.lat longitude:cell.lon] withCompletionHandler:^(NSArray *times, NSURLResponse *response, NSError *error)
-         {
-             if(!error)
-             {
-                 if ([times count]>0)
-                 {
-                     UberTime *time = [times objectAtIndex:0];
-                     dispatch_async(dispatch_get_main_queue(), ^{
-                         cell.UberDriveTime.text = [NSString stringWithFormat:@"%d min", (int)time.estimate/60];
-                         
-                     });
-                 }
-                 
-             }
-             else
-             {
-                 NSLog(@"Error %@", error);
-             }
-         }];
-        [[cell.mainImageScrollView subviews] makeObjectsPerformSelector:@selector(removeFromSuperview)];
-        cell.mainImageScrollView.contentSize = CGSizeMake(self.view.frame.size.width*((NSArray *)cell.cellData[@"photos"]).count, cell.mainImageScrollView.frame.size.height);
-        cell.mainImageScrollView.scrollEnabled = YES;
-        cell.mainImageScrollView.pagingEnabled = YES;
-        cell.mainImageScrollView.contentOffset = CGPointMake(0, 0);
-        int rating = [cell.cellData[@"rating"]intValue]/2+0.5;
-        cell.ratingImg.image = [UIImage imageNamed:[NSString stringWithFormat:@"%dStars",rating]];
-        //        if (rating>5 || rating<0) {
-        //            cell.ratingImg.image = [UIImage imageNamed:@"0Stars"];
-        //        }
-        cell.priceImg.image = [UIImage imageNamed:[NSString stringWithFormat:@"%@Dollar",cell.cellData[@"price"]]];
-        // Configure the view for the selected state
-        [cell.mapView removeAnnotations:cell.mapView.annotations];
-        MKPointAnnotation *pa = [[MKPointAnnotation alloc] init];
-        pa.coordinate = CLLocationCoordinate2DMake(cell.lat, cell.lon);
-        [cell.mapView addAnnotation:pa];
-        MKPointAnnotation *me = [[MKPointAnnotation alloc]init];
-        me.coordinate = CLLocationCoordinate2DMake(cell.melat, cell.melon);
-        
-        [cell.mapView showAnnotations:@[pa,me] animated:YES];
-        [cell.mapView removeAnnotation:me];
-        NSInteger offset = 0;
-        [[cell.mainImageScrollView subviews] makeObjectsPerformSelector:@selector(removeFromSuperview)];
-        
-        for (NSDictionary *picData in cell.cellData[@"photos"]) {
-            UIImageView *imageView = [[UIImageView alloc]initWithFrame:CGRectMake((CGFloat)offset, 0, self.view.frame.size.width, self.view.frame.size.width)];
-            //[imageView setImageWithURL:[NSURL URLWithString:picData[@"url"]]];
-            [imageView setImageWithURL:[NSURL URLWithString:picData[@"url"]] placeholderImage:[UIImage imageNamed:@"Placeholder"]];
-            
-            UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
-            [button setImage:[UIImage imageNamed:@"Flag Button"] forState:UIControlStateNormal]
-            ;
-            
-            [button setFrame:CGRectMake(10, 10, 30, 30)];
-            
-            [button addTarget:self action:@selector(flag) forControlEvents:UIControlEventTouchUpInside];
-            
-            imageView.userInteractionEnabled = true;
-            [imageView addSubview:button];
-            
-            [cell.mainImageScrollView addSubview:imageView];
-            offset=offset + (NSInteger)(self.view.frame.size.width);
-        }
-        cell.startOffset = offset;
-        cell.mainImageScrollView.contentOffset = CGPointMake(((NSNumber *)cell.cellData[@"offset"]).doubleValue, 0.f);
-        NSLog(@"init offset %@",(cell.cellData[@"offset"]));
-        cell.lastId = ((NSArray *)cell.cellData[@"photos"])[((NSArray *)cell.cellData[@"photos"]).count-1][@"id"];
-        if (cellNum+1==self.placesCount) {
-            //load new
-            NSString *address = self.nextUrl;
-            
-            AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
-            [manager GET: address parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
-                self.nextUrl = ((NSDictionary *)responseObject[@"next_url"]);
-                
-                NSMutableArray *newpart = [NSMutableArray arrayWithArray:(NSArray *)responseObject[@"restaurants"]];
-                for (int i = 0; i<[newpart count]; i++) {//123
-                    ((NSMutableArray *)newpart)[i] = [NSMutableDictionary dictionaryWithDictionary:newpart[i]];
-                    
-                    newpart[i][@"offset"] = [NSNumber numberWithDouble:0.0];
-                }
-                self.placesArray= [self.placesArray arrayByAddingObjectsFromArray: newpart];
-                self.placesCount = self.placesArray.count;
-                self.rowcount = self.placesCount;
-                [self.tableView reloadData];
-                
-                
-            } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-                NSLog(@"tError: %@", error);
-                [self.activityIndicator stopAnimating];
-                
-            }];
-            
-            
-        }
-        
-        cell.mapButton.tag = cellNum;
-        [cell.mapButton addTarget:self action:@selector(mapButtonClicked:) forControlEvents:UIControlEventTouchUpInside];
-        cell.uberButton.tag = cellNum;
-        [cell.uberButton addTarget:self action:@selector(uberButtonClicked:) forControlEvents:UIControlEventTouchUpInside];
-    }
-}
-
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     NSInteger cellNum = [indexPath indexAtPosition:1];
     if (cellNum<self.placesCount) {
-        
         StandardTableViewCell*cell = [tableView dequeueReusableCellWithIdentifier: @"StandardCell" forIndexPath:indexPath];
-        /*
+        
         [cell.mainImageScrollView setContentOffset:CGPointZero animated:NO];
         
         
@@ -741,11 +568,10 @@
         [cell.mapButton addTarget:self action:@selector(mapButtonClicked:) forControlEvents:UIControlEventTouchUpInside];
         cell.uberButton.tag = cellNum;
         [cell.uberButton addTarget:self action:@selector(uberButtonClicked:) forControlEvents:UIControlEventTouchUpInside];
-        */
+        
         return cell;
     }else{
         UITableViewCell*cell = [tableView dequeueReusableCellWithIdentifier: @"loadCell" forIndexPath:indexPath];
-         
         return cell;
 
     }
