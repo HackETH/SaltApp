@@ -110,9 +110,10 @@
     
     StandardTableViewCell *cell = [self.tableView cellForRowAtIndexPath:indexPath];
     
-    
+    NSArray *photos = cell.cellData[@"photos"];
+    NSDictionary *photo1 = photos[0];
         //[imageView setImageWithURL:[NSURL URLWithString:picData[@"url"]]];
-        [viewController.image1 setImageWithURL:[NSURL URLWithString:cell.cellData[@"photos"][0][@"url"]] placeholderImage:[UIImage imageNamed:@"Placeholder"]];
+        [viewController.image1 setImageWithURL:[NSURL URLWithString:photo1[@"url"]] placeholderImage:[UIImage imageNamed:@"Placeholder"]];
     
     
         return viewController;
