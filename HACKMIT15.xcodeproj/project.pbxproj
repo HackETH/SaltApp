@@ -34,6 +34,7 @@
 		D06E09061BAE8D7E0063AF4E /* TLYShyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D06E09031BAE8D7E0063AF4E /* TLYShyViewController.m */; };
 		D06E090B1BAE8D860063AF4E /* NSObject+TLYSwizzlingHelpers.m in Sources */ = {isa = PBXBuildFile; fileRef = D06E09081BAE8D860063AF4E /* NSObject+TLYSwizzlingHelpers.m */; };
 		D06E090C1BAE8D860063AF4E /* UIViewController+BetterLayoutGuides.m in Sources */ = {isa = PBXBuildFile; fileRef = D06E090A1BAE8D860063AF4E /* UIViewController+BetterLayoutGuides.m */; };
+		D075BFF71CD39F5C0000AB5C /* PreviewViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D075BFF61CD39F5C0000AB5C /* PreviewViewController.m */; };
 		D076F0BA1BAE1D820050E325 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D076F0B91BAE1D820050E325 /* MapKit.framework */; };
 		D07B8E711BADE5BD00FB2271 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D07B8E701BADE5BD00FB2271 /* CoreLocation.framework */; };
 		D07B8E801BADF98B00FB2271 /* BrandonText-BlackItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = D07B8E741BADF98B00FB2271 /* BrandonText-BlackItalic.otf */; };
@@ -116,6 +117,8 @@
 		D06E09081BAE8D860063AF4E /* NSObject+TLYSwizzlingHelpers.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+TLYSwizzlingHelpers.m"; sourceTree = "<group>"; };
 		D06E09091BAE8D860063AF4E /* UIViewController+BetterLayoutGuides.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+BetterLayoutGuides.h"; sourceTree = "<group>"; };
 		D06E090A1BAE8D860063AF4E /* UIViewController+BetterLayoutGuides.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+BetterLayoutGuides.m"; sourceTree = "<group>"; };
+		D075BFF51CD39F5C0000AB5C /* PreviewViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PreviewViewController.h; sourceTree = "<group>"; };
+		D075BFF61CD39F5C0000AB5C /* PreviewViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PreviewViewController.m; sourceTree = "<group>"; };
 		D076F0B91BAE1D820050E325 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		D07B8E701BADE5BD00FB2271 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		D07B8E731BADF98B00FB2271 /* BrandonText-Black.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "BrandonText-Black.otf"; sourceTree = "<group>"; };
@@ -248,6 +251,8 @@
 				87733D451BADF6E100522DE1 /* MainViewController.m */,
 				87733D671BAE1CF700522DE1 /* MainTableView.h */,
 				87733D681BAE1CF700522DE1 /* MainTableView.m */,
+				D075BFF51CD39F5C0000AB5C /* PreviewViewController.h */,
+				D075BFF61CD39F5C0000AB5C /* PreviewViewController.m */,
 				87733D711BAE239C00522DE1 /* AMScrollingNavbar */,
 				87733D471BADFB6700522DE1 /* AFNetworking */,
 				87A1BFC31BADCA0B00800EA1 /* Supporting Files */,
@@ -498,6 +503,7 @@
 				D06E09061BAE8D7E0063AF4E /* TLYShyViewController.m in Sources */,
 				87733D631BADFB6700522DE1 /* AFURLRequestSerialization.m in Sources */,
 				87A1BFEE1BADCFBE00800EA1 /* StandardTableViewCell.m in Sources */,
+				D075BFF71CD39F5C0000AB5C /* PreviewViewController.m in Sources */,
 				87A1BFC61BADCA0B00800EA1 /* main.m in Sources */,
 				87733D661BADFB6700522DE1 /* UIImageView+AFNetworking.m in Sources */,
 				87733D5E1BADFB6700522DE1 /* AFHTTPRequestOperationManager.m in Sources */,

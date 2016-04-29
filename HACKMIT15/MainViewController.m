@@ -19,6 +19,7 @@
 #import "StandardTableViewCell.h"
 #import<CoreLocation/CoreLocation.h>
 #import <QuartzCore/QuartzCore.h>
+#import "PreviewViewController.h"
 
 
 
@@ -52,7 +53,13 @@
     
 
     
-    
+    if ([self.traitCollection
+                  respondsToSelector:@selector(forceTouchCapability)] &&
+                (self.traitCollection.forceTouchCapability ==
+                           UIForceTouchCapabilityAvailable))
+           {
+                    [self registerForPreviewingWithDelegate:self sourceView:self.view];
+               }
     
     
     self.isFood = true;
@@ -88,6 +95,18 @@
     
     [self.locationManager startUpdatingLocation];
 }
+
+- (UIViewController *)previewingContext:
+(id<UIViewControllerPreviewing>)previewingContext
+              viewControllerForLocation:(CGPoint)location {
+    
+    
+        UIStoryboard* storyboard = [UIStoryboard storyboardWithName:@"Main"
+                                                                                              bundle:nil];
+        PreviewViewController *viewController = [storyboard instantiateViewControllerWithIdentifier:@"preview"];
+    
+        return viewController;
+    }
 
 -(void)viewWillAppear:(BOOL)animated{
     
