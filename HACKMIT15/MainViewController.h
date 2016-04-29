@@ -14,7 +14,7 @@
 
 
 
-@interface MainViewController : UIViewController <UITableViewDataSource, UIScrollViewDelegate, UITableViewDelegate, UIViewControllerPreviewingDelegate>
+@interface MainViewController : UIViewController <UITableViewDataSource, UIScrollViewDelegate, UITableViewDelegate>
 @property (weak, nonatomic) IBOutlet UIButton *topLeftButton;
 @property (weak, nonatomic) IBOutlet UIButton *topRightButton;
 @property (weak, nonatomic) IBOutlet MainTableView *tableView;
