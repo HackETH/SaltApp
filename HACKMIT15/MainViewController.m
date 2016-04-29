@@ -130,7 +130,7 @@
     if (self.isFood) {
         
     
-    NSString *address = [NSString stringWithFormat:@"http://www-saltapp.rhcloud.com/restaurants/discover?lat=%f&long=%f",self.latitude,self.longitude];
+    NSString *address = [NSString stringWithFormat:@"http://salt-updatified.rhcloud.com/restaurants/discover?lat=%f&long=%f",self.latitude,self.longitude];
 
         AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
         [manager GET: address parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
@@ -147,7 +147,7 @@
     
     } else {
         
-        NSString *address = [NSString stringWithFormat:@"http://www-saltapp.rhcloud.com/restaurants/discover?lat=%f&long=%f",self.latitude,self.longitude];
+        NSString *address = [NSString stringWithFormat:@"http://salt-updatified.rhcloud.com/restaurants/discover?lat=%f&long=%f",self.latitude,self.longitude];
         
         AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
         [manager GET: address parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
@@ -204,7 +204,7 @@
 
     
     
-    NSString *address = [NSString stringWithFormat:@"http://www-saltapp.rhcloud.com/restaurants/discover?lat=%f&long=%f",self.latitude,self.longitude];
+    NSString *address = [NSString stringWithFormat:@"http://salt-updatified.rhcloud.com/restaurants/discover?lat=%f&long=%f",self.latitude,self.longitude];
     //NSLog(@"%f %f",self.latitude,self.longitude);
     if (!self.notfirstTime) {
         self.notfirstTime = YES;
