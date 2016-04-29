@@ -113,8 +113,7 @@
     NSArray *photos = cell.cellData[@"photos"];
     NSDictionary *photo1 = photos[0];
         //[imageView setImageWithURL:[NSURL URLWithString:picData[@"url"]]];
-        [viewController.image1 setImageWithURL:[NSURL URLWithString:photo1[@"url"]] placeholderImage:[UIImage imageNamed:@"Placeholder"]];
-    
+    viewController.photos = photos;
     
         return viewController;
     }
@@ -649,6 +648,26 @@
 
 - (void) tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     NSLog(@"Detail Disclosure Tapped");
+    
+    
+    
+    UIStoryboard* storyboard = [UIStoryboard storyboardWithName:@"Main"
+                                                         bundle:nil];
+    PreviewViewController *viewController = [storyboard instantiateViewControllerWithIdentifier:@"preview"];
+    
+    //NSIndexPath *indexPath = [self.tableViewindexPathForRowAtPoint:location];
+    
+    StandardTableViewCell *cell = [self.tableView cellForRowAtIndexPath:indexPath];
+    
+    NSArray *photos = cell.cellData[@"photos"];
+    NSDictionary *photo1 = photos[0];
+    //[imageView setImageWithURL:[NSURL URLWithString:picData[@"url"]]];
+    viewController.photos = photos;
+    
+    
+   // [self presentViewController:viewController animated:YES completion:nil];
+    
+    
     // Set expanded cell then tell tableView to redraw with animation
     self.expandedRow = indexPath;
     [self.tableView beginUpdates];
