@@ -24,18 +24,8 @@
     NSError* error = nil; //do it always
     
     self.locmanager = [[CLLocationManager  alloc]init];
-    
-    NSUInteger code = [CLLocationManager authorizationStatus];
-    if (code == kCLAuthorizationStatusNotDetermined && ([self.locmanager respondsToSelector:@selector(requestAlwaysAuthorization)] || [self.locmanager respondsToSelector:@selector(requestWhenInUseAuthorization)])) {
-        // choose one request according to your business.
-        if([[NSBundle mainBundle] objectForInfoDictionaryKey:@"NSLocationAlwaysUsageDescription"]){
-            [self.locmanager requestAlwaysAuthorization];
-        } else if([[NSBundle mainBundle] objectForInfoDictionaryKey:@"NSLocationWhenInUseUsageDescription"]) {
-            [self.locmanager  requestWhenInUseAuthorization];
-        } else {
-            NSLog(@"Info.plist does not contain NSLocationAlwaysUsageDescription or NSLocationWhenInUseUsageDescription");
-        }
-    }
+    [self.locmanager  requestWhenInUseAuthorization];
+
     self.locmanager.delegate = self;
     [self.locmanager requestLocation];
 
@@ -56,7 +46,7 @@
             return [(NSString *)[obj1 valueForKey:@"rating"] floatValue]<[(NSString *)[obj2 valueForKey:@"rating"] floatValue];
         }];
         [self.table setNumberOfRows:sortedArray.count withRowType:@"MainRow"];
-        [self.table setNumberOfRows:1 withRowType:@"LastRow"]; //Maybe diese Zeile weg
+        //[self.table setNumberOfRows:1 withRowType:@"LastRow"]; //Maybe diese Zeile weg
         for (int i = 0; i<sortedArray.count; i++) {
             //do it async!!
             MainRow *row = [self.table rowControllerAtIndex:i];
@@ -77,11 +67,21 @@
             [row.imageView setImageNamed:@"Not Found"];
             [row.label setText:@"No Connection"];
         }
+    }else{
+        [self.table setNumberOfRows:1 withRowType:@"MainRow"];
+        MainRow *row = [self.table rowControllerAtIndex:0];
+        [row.imageView setImageNamed:@"Not Found"];
+        [row.label setText:@"Allow Location"];
+
     }
 }
 - (void)locationManager:(CLLocationManager *)manager didFailWithError:(NSError *)error {
     // Error here if no location can be found
     NSLog(@"fail");
+    [self.table setNumberOfRows:1 withRowType:@"MainRow"];
+    MainRow *row = [self.table rowControllerAtIndex:0];
+    [row.imageView setImageNamed:@"Not Found"];
+    [row.label setText:@"Allow Location"];
 }
 
 

@@ -25,32 +25,11 @@
     
     self.locmanager = [[CLLocationManager  alloc]init];
     
-    NSUInteger code = [CLLocationManager authorizationStatus];
-    if (code == kCLAuthorizationStatusNotDetermined && ([self.locmanager respondsToSelector:@selector(requestAlwaysAuthorization)] || [self.locmanager respondsToSelector:@selector(requestWhenInUseAuthorization)])) {
-        // choose one request according to your business.
-        if([[NSBundle mainBundle] objectForInfoDictionaryKey:@"NSLocationAlwaysUsageDescription"]){
-            [self.locmanager requestAlwaysAuthorization];
-        } else if([[NSBundle mainBundle] objectForInfoDictionaryKey:@"NSLocationWhenInUseUsageDescription"]) {
-            [self.locmanager  requestWhenInUseAuthorization];
-        } else {
-            NSLog(@"Info.plist does not contain NSLocationAlwaysUsageDescription or NSLocationWhenInUseUsageDescription");
-        }
-    }
+    [self.locmanager  requestWhenInUseAuthorization];
     self.locmanager.delegate = self;
     [self.locmanager requestLocation];
     NSLog(@"hi");
     //for saving all of received data in non-serialized view
-    if (self.locmanager.location.coordinate.longitude != 0.0) {
-        NSLog(@"ok");
-        NSData* data = [NSData dataWithContentsOfURL:[NSURL URLWithString:[NSString stringWithFormat:@"http://www-saltapp.rhcloud.com/restaurants/discover?lat=%f&long=%f",self.locmanager.location.coordinate.latitude, self.locmanager.location.coordinate.longitude]]];
-        NSMutableDictionary *allData = [ NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:&error];
-        NSArray *sortedArray = [((NSArray *)((NSDictionary *)allData)[@"restaurants"]) sortedArrayUsingComparator:^NSComparisonResult(id obj1, id obj2) {
-            return [(NSString *)[obj1 valueForKey:@"rating"] floatValue]<[(NSString *)[obj2 valueForKey:@"rating"] floatValue];
-        }];
-        NSData *imData = [NSData dataWithContentsOfURL:[NSURL URLWithString:sortedArray[0][@"photos"][0][@"small_url"]]];
-        [self.imageController setImageData:imData];
-        [self.label setText:sortedArray[0][@"photos"][0][@"name"] ];
-    }
 
     
 }
@@ -74,11 +53,15 @@
             [self.label setText:@"No Connection"];
         }
         
-}
+    }else{
+        [self.label setText:@"Allow Location"];
+    }
 }
 - (void)locationManager:(CLLocationManager *)manager didFailWithError:(NSError *)error {
     // Error here if no location can be found
     NSLog(@"fail");
+    [self.label setText:@"Allow Location"];
+
 }
 
 - (void)willActivate {
