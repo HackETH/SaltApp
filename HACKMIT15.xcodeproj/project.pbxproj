@@ -33,6 +33,14 @@
 		871D92151CD4B27300ADDE07 /* AFURLSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 871D92031CD4B27300ADDE07 /* AFURLSessionManager.m */; };
 		871D92181CD4B2FF00ADDE07 /* UIImageView+AFNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = 871D92171CD4B2FF00ADDE07 /* UIImageView+AFNetworking.m */; };
 		871D92191CD4B2FF00ADDE07 /* UIImageView+AFNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = 871D92171CD4B2FF00ADDE07 /* UIImageView+AFNetworking.m */; };
+		871D92531CD4CE6000ADDE07 /* Interface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 871D92511CD4CE6000ADDE07 /* Interface.storyboard */; };
+		871D92551CD4CE6000ADDE07 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 871D92541CD4CE6000ADDE07 /* Assets.xcassets */; };
+		871D925C1CD4CE6000ADDE07 /* SaltWacht Extension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 871D925B1CD4CE6000ADDE07 /* SaltWacht Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		871D92621CD4CE6000ADDE07 /* InterfaceController.m in Sources */ = {isa = PBXBuildFile; fileRef = 871D92611CD4CE6000ADDE07 /* InterfaceController.m */; };
+		871D92651CD4CE6000ADDE07 /* ExtensionDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 871D92641CD4CE6000ADDE07 /* ExtensionDelegate.m */; };
+		871D92681CD4CE6000ADDE07 /* GlanceController.m in Sources */ = {isa = PBXBuildFile; fileRef = 871D92671CD4CE6000ADDE07 /* GlanceController.m */; };
+		871D926A1CD4CE6000ADDE07 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 871D92691CD4CE6000ADDE07 /* Assets.xcassets */; };
+		871D926E1CD4CE6000ADDE07 /* SaltWacht.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = 871D924F1CD4CE6000ADDE07 /* SaltWacht.app */; };
 		87733D461BADF6E100522DE1 /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 87733D451BADF6E100522DE1 /* MainViewController.m */; };
 		87733D691BAE1CF700522DE1 /* MainTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 87733D681BAE1CF700522DE1 /* MainTableView.m */; };
 		87733D741BAE239C00522DE1 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 87733D731BAE239C00522DE1 /* Info.plist */; };
@@ -73,6 +81,20 @@
 			remoteGlobalIDString = 871D91891CD3F58700ADDE07;
 			remoteInfo = SaltToday;
 		};
+		871D925D1CD4CE6000ADDE07 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 87A1BFB81BADCA0B00800EA1 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 871D925A1CD4CE6000ADDE07;
+			remoteInfo = "SaltWacht Extension";
+		};
+		871D926C1CD4CE6000ADDE07 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 87A1BFB81BADCA0B00800EA1 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 871D924E1CD4CE6000ADDE07;
+			remoteInfo = SaltWacht;
+		};
 		87A1BFDA1BADCA0B00800EA1 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 87A1BFB81BADCA0B00800EA1 /* Project object */;
@@ -90,6 +112,28 @@
 			dstSubfolderSpec = 13;
 			files = (
 				871D91961CD3F58700ADDE07 /* SaltToday.appex in Embed App Extensions */,
+			);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		871D92451CD4CDE800ADDE07 /* Embed Watch Content */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "$(CONTENTS_FOLDER_PATH)/Watch";
+			dstSubfolderSpec = 16;
+			files = (
+				871D926E1CD4CE6000ADDE07 /* SaltWacht.app in Embed Watch Content */,
+			);
+			name = "Embed Watch Content";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		871D92721CD4CE6000ADDE07 /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				871D925C1CD4CE6000ADDE07 /* SaltWacht Extension.appex in Embed App Extensions */,
 			);
 			name = "Embed App Extensions";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -127,6 +171,19 @@
 		871D92031CD4B27300ADDE07 /* AFURLSessionManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFURLSessionManager.m; sourceTree = "<group>"; };
 		871D92161CD4B2F600ADDE07 /* UIImageView+AFNetworking.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImageView+AFNetworking.h"; sourceTree = "<group>"; };
 		871D92171CD4B2FF00ADDE07 /* UIImageView+AFNetworking.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImageView+AFNetworking.m"; sourceTree = "<group>"; };
+		871D924F1CD4CE6000ADDE07 /* SaltWacht.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SaltWacht.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		871D92521CD4CE6000ADDE07 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Interface.storyboard; sourceTree = "<group>"; };
+		871D92541CD4CE6000ADDE07 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		871D92561CD4CE6000ADDE07 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		871D925B1CD4CE6000ADDE07 /* SaltWacht Extension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "SaltWacht Extension.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
+		871D92601CD4CE6000ADDE07 /* InterfaceController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = InterfaceController.h; sourceTree = "<group>"; };
+		871D92611CD4CE6000ADDE07 /* InterfaceController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = InterfaceController.m; sourceTree = "<group>"; };
+		871D92631CD4CE6000ADDE07 /* ExtensionDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ExtensionDelegate.h; sourceTree = "<group>"; };
+		871D92641CD4CE6000ADDE07 /* ExtensionDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ExtensionDelegate.m; sourceTree = "<group>"; };
+		871D92661CD4CE6000ADDE07 /* GlanceController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GlanceController.h; sourceTree = "<group>"; };
+		871D92671CD4CE6000ADDE07 /* GlanceController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GlanceController.m; sourceTree = "<group>"; };
+		871D92691CD4CE6000ADDE07 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		871D926B1CD4CE6000ADDE07 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		87733D441BADF6E100522DE1 /* MainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainViewController.h; sourceTree = "<group>"; };
 		87733D451BADF6E100522DE1 /* MainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainViewController.m; sourceTree = "<group>"; };
 		87733D671BAE1CF700522DE1 /* MainTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainTableView.h; sourceTree = "<group>"; };
@@ -183,6 +240,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				871D918B1CD3F58700ADDE07 /* NotificationCenter.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		871D92581CD4CE6000ADDE07 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -263,6 +327,31 @@
 			path = AFNetworking;
 			sourceTree = "<group>";
 		};
+		871D92501CD4CE6000ADDE07 /* SaltWacht */ = {
+			isa = PBXGroup;
+			children = (
+				871D92511CD4CE6000ADDE07 /* Interface.storyboard */,
+				871D92541CD4CE6000ADDE07 /* Assets.xcassets */,
+				871D92561CD4CE6000ADDE07 /* Info.plist */,
+			);
+			path = SaltWacht;
+			sourceTree = "<group>";
+		};
+		871D925F1CD4CE6000ADDE07 /* SaltWacht Extension */ = {
+			isa = PBXGroup;
+			children = (
+				871D92601CD4CE6000ADDE07 /* InterfaceController.h */,
+				871D92611CD4CE6000ADDE07 /* InterfaceController.m */,
+				871D92631CD4CE6000ADDE07 /* ExtensionDelegate.h */,
+				871D92641CD4CE6000ADDE07 /* ExtensionDelegate.m */,
+				871D92661CD4CE6000ADDE07 /* GlanceController.h */,
+				871D92671CD4CE6000ADDE07 /* GlanceController.m */,
+				871D92691CD4CE6000ADDE07 /* Assets.xcassets */,
+				871D926B1CD4CE6000ADDE07 /* Info.plist */,
+			);
+			path = "SaltWacht Extension";
+			sourceTree = "<group>";
+		};
 		87733D711BAE239C00522DE1 /* AMScrollingNavbar */ = {
 			isa = PBXGroup;
 			children = (
@@ -280,6 +369,8 @@
 				87A1BFC21BADCA0B00800EA1 /* HACKMIT15 */,
 				87A1BFDC1BADCA0B00800EA1 /* HACKMIT15Tests */,
 				871D918C1CD3F58700ADDE07 /* SaltToday */,
+				871D92501CD4CE6000ADDE07 /* SaltWacht */,
+				871D925F1CD4CE6000ADDE07 /* SaltWacht Extension */,
 				87A1BFC11BADCA0B00800EA1 /* Products */,
 				2BA35C49605C26C882D05F07 /* Pods */,
 				6F27B2721D655EBF06914488 /* Frameworks */,
@@ -292,6 +383,8 @@
 				87A1BFC01BADCA0B00800EA1 /* HACKMIT15.app */,
 				87A1BFD91BADCA0B00800EA1 /* HACKMIT15Tests.xctest */,
 				871D918A1CD3F58700ADDE07 /* SaltToday.appex */,
+				871D924F1CD4CE6000ADDE07 /* SaltWacht.app */,
+				871D925B1CD4CE6000ADDE07 /* SaltWacht Extension.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -406,6 +499,40 @@
 			productReference = 871D918A1CD3F58700ADDE07 /* SaltToday.appex */;
 			productType = "com.apple.product-type.app-extension";
 		};
+		871D924E1CD4CE6000ADDE07 /* SaltWacht */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 871D92731CD4CE6000ADDE07 /* Build configuration list for PBXNativeTarget "SaltWacht" */;
+			buildPhases = (
+				871D924D1CD4CE6000ADDE07 /* Resources */,
+				871D92721CD4CE6000ADDE07 /* Embed App Extensions */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				871D925E1CD4CE6000ADDE07 /* PBXTargetDependency */,
+			);
+			name = SaltWacht;
+			productName = SaltWacht;
+			productReference = 871D924F1CD4CE6000ADDE07 /* SaltWacht.app */;
+			productType = "com.apple.product-type.application.watchapp2";
+		};
+		871D925A1CD4CE6000ADDE07 /* SaltWacht Extension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 871D926F1CD4CE6000ADDE07 /* Build configuration list for PBXNativeTarget "SaltWacht Extension" */;
+			buildPhases = (
+				871D92571CD4CE6000ADDE07 /* Sources */,
+				871D92581CD4CE6000ADDE07 /* Frameworks */,
+				871D92591CD4CE6000ADDE07 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "SaltWacht Extension";
+			productName = "SaltWacht Extension";
+			productReference = 871D925B1CD4CE6000ADDE07 /* SaltWacht Extension.appex */;
+			productType = "com.apple.product-type.watchkit2-extension";
+		};
 		87A1BFBF1BADCA0B00800EA1 /* HACKMIT15 */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 87A1BFE31BADCA0B00800EA1 /* Build configuration list for PBXNativeTarget "HACKMIT15" */;
@@ -417,11 +544,13 @@
 				358CAEA2DE26D990F26C9EAC /* Embed Pods Frameworks */,
 				E7EE6FCCCA149B64ED9F6F18 /* Copy Pods Resources */,
 				871D91541CD3DEBD00ADDE07 /* Embed App Extensions */,
+				871D92451CD4CDE800ADDE07 /* Embed Watch Content */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 				871D91951CD3F58700ADDE07 /* PBXTargetDependency */,
+				871D926D1CD4CE6000ADDE07 /* PBXTargetDependency */,
 			);
 			name = HACKMIT15;
 			productName = HACKMIT15;
@@ -459,6 +588,13 @@
 						CreatedOnToolsVersion = 7.3;
 						DevelopmentTeam = 68X9Z9JMZ9;
 					};
+					871D924E1CD4CE6000ADDE07 = {
+						CreatedOnToolsVersion = 7.3;
+						DevelopmentTeam = 68X9Z9JMZ9;
+					};
+					871D925A1CD4CE6000ADDE07 = {
+						CreatedOnToolsVersion = 7.3;
+					};
 					87A1BFBF1BADCA0B00800EA1 = {
 						CreatedOnToolsVersion = 6.4;
 						DevelopmentTeam = 68X9Z9JMZ9;
@@ -485,6 +621,8 @@
 				87A1BFBF1BADCA0B00800EA1 /* HACKMIT15 */,
 				87A1BFD81BADCA0B00800EA1 /* HACKMIT15Tests */,
 				871D91891CD3F58700ADDE07 /* SaltToday */,
+				871D924E1CD4CE6000ADDE07 /* SaltWacht */,
+				871D925A1CD4CE6000ADDE07 /* SaltWacht Extension */,
 			);
 		};
 /* End PBXProject section */
@@ -495,6 +633,23 @@
 			buildActionMask = 2147483647;
 			files = (
 				871D91921CD3F58700ADDE07 /* MainInterface.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		871D924D1CD4CE6000ADDE07 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				871D92551CD4CE6000ADDE07 /* Assets.xcassets in Resources */,
+				871D92531CD4CE6000ADDE07 /* Interface.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		871D92591CD4CE6000ADDE07 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				871D926A1CD4CE6000ADDE07 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -597,6 +752,16 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		871D92571CD4CE6000ADDE07 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				871D92651CD4CE6000ADDE07 /* ExtensionDelegate.m in Sources */,
+				871D92621CD4CE6000ADDE07 /* InterfaceController.m in Sources */,
+				871D92681CD4CE6000ADDE07 /* GlanceController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		87A1BFBC1BADCA0B00800EA1 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -642,6 +807,16 @@
 			target = 871D91891CD3F58700ADDE07 /* SaltToday */;
 			targetProxy = 871D91941CD3F58700ADDE07 /* PBXContainerItemProxy */;
 		};
+		871D925E1CD4CE6000ADDE07 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 871D925A1CD4CE6000ADDE07 /* SaltWacht Extension */;
+			targetProxy = 871D925D1CD4CE6000ADDE07 /* PBXContainerItemProxy */;
+		};
+		871D926D1CD4CE6000ADDE07 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 871D924E1CD4CE6000ADDE07 /* SaltWacht */;
+			targetProxy = 871D926C1CD4CE6000ADDE07 /* PBXContainerItemProxy */;
+		};
 		87A1BFDB1BADCA0B00800EA1 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 87A1BFBF1BADCA0B00800EA1 /* HACKMIT15 */;
@@ -656,6 +831,14 @@
 				871D91911CD3F58700ADDE07 /* Base */,
 			);
 			name = MainInterface.storyboard;
+			sourceTree = "<group>";
+		};
+		871D92511CD4CE6000ADDE07 /* Interface.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				871D92521CD4CE6000ADDE07 /* Base */,
+			);
+			name = Interface.storyboard;
 			sourceTree = "<group>";
 		};
 		87A1BFCD1BADCA0B00800EA1 /* Main.storyboard */ = {
@@ -704,6 +887,70 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.mullermuller.salt.SaltToday;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
+		871D92701CD4CE6000ADDE07 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_TESTABILITY = YES;
+				INFOPLIST_FILE = "SaltWacht Extension/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.mullermuller.salt.watchkitapp.watchkitextension;
+				PRODUCT_NAME = "${TARGET_NAME}";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 2.2;
+			};
+			name = Debug;
+		};
+		871D92711CD4CE6000ADDE07 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = "SaltWacht Extension/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.mullermuller.salt.watchkitapp.watchkitextension;
+				PRODUCT_NAME = "${TARGET_NAME}";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 2.2;
+			};
+			name = Release;
+		};
+		871D92741CD4CE6000ADDE07 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_TESTABILITY = YES;
+				IBSC_MODULE = SaltWacht_Extension;
+				INFOPLIST_FILE = SaltWacht/Info.plist;
+				PRODUCT_BUNDLE_IDENTIFIER = com.mullermuller.salt.watchkitapp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 2.2;
+			};
+			name = Debug;
+		};
+		871D92751CD4CE6000ADDE07 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				IBSC_MODULE = SaltWacht_Extension;
+				INFOPLIST_FILE = SaltWacht/Info.plist;
+				PRODUCT_BUNDLE_IDENTIFIER = com.mullermuller.salt.watchkitapp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 2.2;
 			};
 			name = Release;
 		};
@@ -859,6 +1106,22 @@
 			buildConfigurations = (
 				871D91981CD3F58700ADDE07 /* Debug */,
 				871D91991CD3F58700ADDE07 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		871D926F1CD4CE6000ADDE07 /* Build configuration list for PBXNativeTarget "SaltWacht Extension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				871D92701CD4CE6000ADDE07 /* Debug */,
+				871D92711CD4CE6000ADDE07 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		871D92731CD4CE6000ADDE07 /* Build configuration list for PBXNativeTarget "SaltWacht" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				871D92741CD4CE6000ADDE07 /* Debug */,
+				871D92751CD4CE6000ADDE07 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 		};

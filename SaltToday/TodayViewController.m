@@ -36,7 +36,17 @@
     
     // Perform any setup necessary in order to update the view.
     CLLocationManager *locmanager = [[CLLocationManager  alloc]init];
-    
+    NSUInteger code = [CLLocationManager authorizationStatus];
+    if (code == kCLAuthorizationStatusNotDetermined && ([locmanager respondsToSelector:@selector(requestAlwaysAuthorization)] || [locmanager respondsToSelector:@selector(requestWhenInUseAuthorization)])) {
+        // choose one request according to your business.
+        if([[NSBundle mainBundle] objectForInfoDictionaryKey:@"NSLocationAlwaysUsageDescription"]){
+            [locmanager requestAlwaysAuthorization];
+        } else if([[NSBundle mainBundle] objectForInfoDictionaryKey:@"NSLocationWhenInUseUsageDescription"]) {
+            [locmanager  requestWhenInUseAuthorization];
+        } else {
+            NSLog(@"Info.plist does not contain NSLocationAlwaysUsageDescription or NSLocationWhenInUseUsageDescription");
+        }
+    }
     NSString *address = [NSString stringWithFormat:@"http://www-saltapp.rhcloud.com/restaurants/discover?lat=%f&long=%f",locmanager.location.coordinate.latitude,locmanager.location.coordinate.longitude];
     
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];

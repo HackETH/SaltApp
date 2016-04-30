@@ -4,15 +4,40 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
+		<key>Glance - SaltWacht.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>9</integer>
+		</dict>
 		<key>HACKMIT15.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
 			<integer>0</integer>
 		</dict>
+		<key>Notification - SaltWatch.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>6</integer>
+		</dict>
 		<key>SaltToday.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
 			<integer>4</integer>
+		</dict>
+		<key>SaltWacht.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>8</integer>
+		</dict>
+		<key>SaltWatch copy.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>7</integer>
+		</dict>
+		<key>SaltWatch.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>5</integer>
 		</dict>
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
@@ -28,6 +53,21 @@
 			<true/>
 		</dict>
 		<key>871D91891CD3F58700ADDE07</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>871D921B1CD4CDE800ADDE07</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>871D92461CD4CE4100ADDE07</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>871D924E1CD4CE6000ADDE07</key>
 		<dict>
 			<key>primary</key>
 			<true/>
