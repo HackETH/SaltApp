@@ -8,9 +8,43 @@
         <!--Interface Controller-->
         <scene sceneID="aou-V4-d1y">
             <objects>
-                <controller id="AgC-eL-Hgc" customClass="InterfaceController"/>
+                <controller id="AgC-eL-Hgc" customClass="InterfaceController">
+                    <items>
+                        <table alignment="left" id="ey0-o5-tDU">
+                            <items>
+                                <tableRow identifier="MainRow" selectable="NO" id="6AK-q5-RNX" customClass="MainRow">
+                                    <group key="rootItem" width="1" height="136" alignment="left" layout="vertical" id="4BB-wH-bcD">
+                                        <items>
+                                            <imageView width="127" height="107" alignment="left" id="h2n-aA-d15"/>
+                                            <label width="129.5" height="25.5" alignment="left" text="Loading" id="KFU-3p-g3X"/>
+                                        </items>
+                                    </group>
+                                    <connections>
+                                        <outlet property="imageView" destination="h2n-aA-d15" id="w12-F4-8CQ"/>
+                                        <outlet property="label" destination="KFU-3p-g3X" id="kOv-5Z-VMA"/>
+                                    </connections>
+                                </tableRow>
+                                <tableRow identifier="LastRow" id="gja-va-FRx">
+                                    <group key="rootItem" width="1" height="45.5" alignment="left" layout="vertical" id="D2S-t7-h8t">
+                                        <items>
+                                            <label width="136" height="21.5" alignment="left" text="For more information" id="v1b-Op-fyV">
+                                                <fontDescription key="font" type="system" pointSize="10"/>
+                                            </label>
+                                            <label width="125.5" alignment="left" text="use the iPhone App." id="TpC-iz-prQ">
+                                                <fontDescription key="font" type="system" pointSize="10"/>
+                                            </label>
+                                        </items>
+                                    </group>
+                                </tableRow>
+                            </items>
+                        </table>
+                    </items>
+                    <connections>
+                        <outlet property="table" destination="ey0-o5-tDU" id="wH0-MP-Tu3"/>
+                    </connections>
+                </controller>
             </objects>
-            <point key="canvasLocation" x="164" y="217"/>
+            <point key="canvasLocation" x="164" y="220.5"/>
         </scene>
         <!--Glance Interface Controller-->
         <scene sceneID="rjY-Ar-IMT">
@@ -31,6 +65,7 @@
                     <edgeInsets key="margins" left="0.0" right="0.0" top="0.0" bottom="14"/>
                     <connections>
                         <outlet property="imageController" destination="hmw-gl-lUt" id="Tdr-qk-Oxh"/>
+                        <outlet property="label" destination="0Rb-Z5-EYF" id="Xoa-pK-PRa"/>
                     </connections>
                 </glanceController>
             </objects>

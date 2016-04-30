@@ -51,6 +51,7 @@
 		87A1BFD41BADCA0B00800EA1 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 87A1BFD21BADCA0B00800EA1 /* LaunchScreen.xib */; };
 		87A1BFE01BADCA0B00800EA1 /* HACKMIT15Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = 87A1BFDF1BADCA0B00800EA1 /* HACKMIT15Tests.m */; };
 		87A1BFEE1BADCFBE00800EA1 /* StandardTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 87A1BFED1BADCFBE00800EA1 /* StandardTableViewCell.m */; };
+		87BE28851CD4F0E0003334D5 /* MainRow.m in Sources */ = {isa = PBXBuildFile; fileRef = 87BE28841CD4F0E0003334D5 /* MainRow.m */; };
 		D06E09041BAE8D7E0063AF4E /* TLYDelegateProxy.m in Sources */ = {isa = PBXBuildFile; fileRef = D06E08FF1BAE8D7E0063AF4E /* TLYDelegateProxy.m */; };
 		D06E09051BAE8D7E0063AF4E /* TLYShyNavBarManager.m in Sources */ = {isa = PBXBuildFile; fileRef = D06E09011BAE8D7E0063AF4E /* TLYShyNavBarManager.m */; };
 		D06E09061BAE8D7E0063AF4E /* TLYShyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D06E09031BAE8D7E0063AF4E /* TLYShyViewController.m */; };
@@ -203,6 +204,8 @@
 		87A1BFDF1BADCA0B00800EA1 /* HACKMIT15Tests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HACKMIT15Tests.m; sourceTree = "<group>"; };
 		87A1BFEC1BADCFBE00800EA1 /* StandardTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StandardTableViewCell.h; sourceTree = "<group>"; };
 		87A1BFED1BADCFBE00800EA1 /* StandardTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StandardTableViewCell.m; sourceTree = "<group>"; };
+		87BE28831CD4F0E0003334D5 /* MainRow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainRow.h; sourceTree = "<group>"; };
+		87BE28841CD4F0E0003334D5 /* MainRow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainRow.m; sourceTree = "<group>"; };
 		9B5DB780E503F8525E33A40B /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		C40351BF054A88686655A87D /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		D06E08FE1BAE8D7E0063AF4E /* TLYDelegateProxy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TLYDelegateProxy.h; sourceTree = "<group>"; };
@@ -331,6 +334,8 @@
 			isa = PBXGroup;
 			children = (
 				871D92511CD4CE6000ADDE07 /* Interface.storyboard */,
+				87BE28831CD4F0E0003334D5 /* MainRow.h */,
+				87BE28841CD4F0E0003334D5 /* MainRow.m */,
 				871D92541CD4CE6000ADDE07 /* Assets.xcassets */,
 				871D92561CD4CE6000ADDE07 /* Info.plist */,
 			);
@@ -757,6 +762,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				871D92651CD4CE6000ADDE07 /* ExtensionDelegate.m in Sources */,
+				87BE28851CD4F0E0003334D5 /* MainRow.m in Sources */,
 				871D92621CD4CE6000ADDE07 /* InterfaceController.m in Sources */,
 				871D92681CD4CE6000ADDE07 /* GlanceController.m in Sources */,
 			);
@@ -1108,6 +1114,7 @@
 				871D91991CD3F58700ADDE07 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		871D926F1CD4CE6000ADDE07 /* Build configuration list for PBXNativeTarget "SaltWacht Extension" */ = {
 			isa = XCConfigurationList;
@@ -1116,6 +1123,7 @@
 				871D92711CD4CE6000ADDE07 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		871D92731CD4CE6000ADDE07 /* Build configuration list for PBXNativeTarget "SaltWacht" */ = {
 			isa = XCConfigurationList;
@@ -1124,6 +1132,7 @@
 				871D92751CD4CE6000ADDE07 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		87A1BFBB1BADCA0B00800EA1 /* Build configuration list for PBXProject "HACKMIT15" */ = {
 			isa = XCConfigurationList;

@@ -10,6 +10,7 @@
 
 
 @interface GlanceController()
+@property (unsafe_unretained, nonatomic) IBOutlet WKInterfaceLabel *label;
 @property CLLocationManager *locmanager;
 @end
 
@@ -48,6 +49,7 @@
         }];
         NSData *imData = [NSData dataWithContentsOfURL:[NSURL URLWithString:sortedArray[0][@"photos"][0][@"small_url"]]];
         [self.imageController setImageData:imData];
+        [self.label setText:sortedArray[0][@"photos"][0][@"name"] ];
     }
 
     
@@ -60,12 +62,18 @@
         NSError* error = nil; //do it always
 
         NSData* data = [NSData dataWithContentsOfURL:[NSURL URLWithString:[NSString stringWithFormat:@"http://www-saltapp.rhcloud.com/restaurants/discover?lat=%f&long=%f",locmanager.location.coordinate.latitude, locmanager.location.coordinate.longitude]]];
-        NSMutableDictionary *allData = [ NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:&error];
-        NSArray *sortedArray = [((NSArray *)((NSDictionary *)allData)[@"restaurants"]) sortedArrayUsingComparator:^NSComparisonResult(id obj1, id obj2) {
-            return [(NSString *)[obj1 valueForKey:@"rating"] floatValue]<[(NSString *)[obj2 valueForKey:@"rating"] floatValue];
-        }];
-        NSData *imData = [NSData dataWithContentsOfURL:[NSURL URLWithString:sortedArray[0][@"photos"][0][@"small_url"]]];
-        [self.imageController setImageData:imData];
+        if (data) {
+            NSMutableDictionary *allData = [ NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:&error];
+            NSArray *sortedArray = [((NSArray *)((NSDictionary *)allData)[@"restaurants"]) sortedArrayUsingComparator:^NSComparisonResult(id obj1, id obj2) {
+                return [(NSString *)[obj1 valueForKey:@"rating"] floatValue]<[(NSString *)[obj2 valueForKey:@"rating"] floatValue];
+            }];
+            NSData *imData = [NSData dataWithContentsOfURL:[NSURL URLWithString:sortedArray[0][@"photos"][0][@"small_url"]]];
+            [self.imageController setImageData:imData];
+            [self.label setText:sortedArray[0][@"photos"][0][@"name"] ];
+        }else{
+            [self.label setText:@"No Connection"];
+        }
+        
 }
 }
 - (void)locationManager:(CLLocationManager *)manager didFailWithError:(NSError *)error {
