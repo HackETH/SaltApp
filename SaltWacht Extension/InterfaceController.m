@@ -45,7 +45,7 @@
         NSArray *sortedArray = [((NSArray *)((NSDictionary *)allData)[@"restaurants"]) sortedArrayUsingComparator:^NSComparisonResult(id obj1, id obj2) {
             return [(NSString *)[obj1 valueForKey:@"rating"] floatValue]<[(NSString *)[obj2 valueForKey:@"rating"] floatValue];
         }];
-        NSMutableArray *controllers = @[];
+        NSMutableArray *controllers = [NSMutableArray array];
             for (NSObject *_ in sortedArray) {
                 [controllers addObject:@"MainRow"];
             }
