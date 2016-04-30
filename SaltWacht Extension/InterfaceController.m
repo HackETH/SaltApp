@@ -45,7 +45,12 @@
         NSArray *sortedArray = [((NSArray *)((NSDictionary *)allData)[@"restaurants"]) sortedArrayUsingComparator:^NSComparisonResult(id obj1, id obj2) {
             return [(NSString *)[obj1 valueForKey:@"rating"] floatValue]<[(NSString *)[obj2 valueForKey:@"rating"] floatValue];
         }];
-        [self.table setNumberOfRows:sortedArray.count withRowType:@"MainRow"];
+        NSMutableArray *controllers = @[];
+            for (NSObject *_ in sortedArray) {
+                [controllers addObject:@"MainRow"];
+            }
+            [controllers addObject:@"LastRow"];
+            [self.table setRowTypes:controllers];
         //[self.table setNumberOfRows:1 withRowType:@"LastRow"]; //Maybe diese Zeile weg
         for (int i = 0; i<sortedArray.count; i++) {
             //do it async!!
