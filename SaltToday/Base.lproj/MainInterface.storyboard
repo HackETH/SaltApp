@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10089" systemVersion="15A284" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="8Iy-Qy-dNh">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10072.1"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+    </dependencies>
+    <scenes>
+        <!--Today View Controller-->
+        <scene sceneID="ILa-ta-gQH">
+            <objects>
+                <viewController id="8Iy-Qy-dNh" customClass="TodayViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="6Ym-81-SZn"/>
+                        <viewControllerLayoutGuide type="bottom" id="WNV-6Z-4qi"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" simulatedAppContext="notificationCenter" id="u4s-B5-com">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="100"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="top" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Loading..." lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="280" translatesAutoresizingMaskIntoConstraints="NO" id="ECv-G6-d27">
+                                <rect key="frame" x="20" y="71" width="275" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="lightTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="nBg-Ur-9SX">
+                                <rect key="frame" x="19" y="8" width="56" height="56"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="56" id="216-8i-SF6"/>
+                                    <constraint firstAttribute="width" constant="56" id="PVA-4A-3OV"/>
+                                </constraints>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="LyN-jQ-GIz">
+                                <rect key="frame" x="83" y="8" width="56" height="56"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="56" id="HCq-cj-Hab"/>
+                                    <constraint firstAttribute="height" constant="56" id="bzH-JO-v9I"/>
+                                    <constraint firstAttribute="width" constant="56" id="coY-Rm-Ph5"/>
+                                </constraints>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="caQ-kd-77G">
+                                <rect key="frame" x="147" y="7" width="56" height="56"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="56" id="g2o-pC-cLl"/>
+                                    <constraint firstAttribute="width" constant="56" id="oi8-Ar-via"/>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="56" id="sGt-Ml-lc8"/>
+                                </constraints>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="q8F-eQ-8VF">
+                                <rect key="frame" x="211" y="8" width="56" height="56"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="56" id="AIB-u6-Ho7"/>
+                                    <constraint firstAttribute="width" constant="56" id="jDV-yl-aMG"/>
+                                </constraints>
+                            </imageView>
+                        </subviews>
+                        <constraints>
+                            <constraint firstItem="ECv-G6-d27" firstAttribute="top" secondItem="q8F-eQ-8VF" secondAttribute="bottom" constant="7" id="9eX-WJ-q4b"/>
+                            <constraint firstItem="WNV-6Z-4qi" firstAttribute="top" secondItem="ECv-G6-d27" secondAttribute="bottom" constant="8" symbolic="YES" id="NFX-OL-DqS"/>
+                            <constraint firstItem="LyN-jQ-GIz" firstAttribute="leading" secondItem="nBg-Ur-9SX" secondAttribute="trailing" constant="8" symbolic="YES" id="TrY-g5-XOB"/>
+                            <constraint firstItem="nBg-Ur-9SX" firstAttribute="leading" secondItem="u4s-B5-com" secondAttribute="leadingMargin" constant="3" id="UJ9-T8-xge"/>
+                            <constraint firstItem="ECv-G6-d27" firstAttribute="top" secondItem="caQ-kd-77G" secondAttribute="bottom" constant="8" symbolic="YES" id="V23-lY-c58"/>
+                            <constraint firstItem="q8F-eQ-8VF" firstAttribute="top" secondItem="LyN-jQ-GIz" secondAttribute="top" id="Y6S-Wx-8EI"/>
+                            <constraint firstItem="caQ-kd-77G" firstAttribute="top" secondItem="6Ym-81-SZn" secondAttribute="bottom" constant="7" id="Yss-Oy-uuN"/>
+                            <constraint firstItem="nBg-Ur-9SX" firstAttribute="top" secondItem="LyN-jQ-GIz" secondAttribute="top" id="bCc-5b-j4O"/>
+                            <constraint firstItem="q8F-eQ-8VF" firstAttribute="leading" secondItem="caQ-kd-77G" secondAttribute="trailing" constant="8" symbolic="YES" id="bNt-9d-EAZ"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="q8F-eQ-8VF" secondAttribute="trailing" constant="37" id="dHW-D1-pRj"/>
+                            <constraint firstItem="ECv-G6-d27" firstAttribute="leading" secondItem="u4s-B5-com" secondAttribute="leadingMargin" constant="4" id="elo-eb-pDj"/>
+                            <constraint firstItem="caQ-kd-77G" firstAttribute="leading" secondItem="u4s-B5-com" secondAttribute="leading" constant="147" id="fpS-Pn-61Q"/>
+                            <constraint firstItem="q8F-eQ-8VF" firstAttribute="bottom" secondItem="LyN-jQ-GIz" secondAttribute="bottom" id="ib0-YY-98X"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="ECv-G6-d27" secondAttribute="trailing" constant="9" id="jTJ-yA-LcM"/>
+                            <constraint firstItem="caQ-kd-77G" firstAttribute="leading" secondItem="LyN-jQ-GIz" secondAttribute="trailing" constant="8" symbolic="YES" id="jnr-Vb-6LQ"/>
+                            <constraint firstItem="LyN-jQ-GIz" firstAttribute="top" secondItem="6Ym-81-SZn" secondAttribute="bottom" constant="8" symbolic="YES" id="oOd-Jz-W4s"/>
+                            <constraint firstItem="nBg-Ur-9SX" firstAttribute="bottom" secondItem="LyN-jQ-GIz" secondAttribute="bottom" id="oz0-Bs-rN0"/>
+                        </constraints>
+                    </view>
+                    <extendedEdge key="edgesForExtendedLayout"/>
+                    <nil key="simulatedStatusBarMetrics"/>
+                    <nil key="simulatedTopBarMetrics"/>
+                    <nil key="simulatedBottomBarMetrics"/>
+                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+                    <size key="freeformSize" width="320" height="100"/>
+                    <connections>
+                        <outlet property="nameLabel" destination="ECv-G6-d27" id="Xha-O5-ePG"/>
+                        <outletCollection property="imV" destination="q8F-eQ-8VF" id="ULQ-SI-ffy"/>
+                        <outletCollection property="imV" destination="caQ-kd-77G" id="yE6-Pi-jO5"/>
+                        <outletCollection property="imV" destination="LyN-jQ-GIz" id="iXZ-Ch-P5D"/>
+                        <outletCollection property="imV" destination="nBg-Ur-9SX" id="oLX-fy-ImH"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="4FZ-dE-lnN" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="497" y="246"/>
+        </scene>
+    </scenes>
+</document>
