@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="ts6-ul-wK4">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10089" systemVersion="15A284" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="ts6-ul-wK4">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10072.1"/>
         <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
@@ -634,6 +634,7 @@
                         <viewControllerLayoutGuide type="bottom" id="H2h-LA-7C4"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="Jfo-RD-0Bc">
+                        <rect key="frame" x="0.0" y="0.0" width="400" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="2Xf-te-ND2">
@@ -791,12 +792,6 @@
                                 <exclude reference="TMu-9m-IiJ"/>
                                 <exclude reference="ZTJ-pA-Gdn"/>
                                 <exclude reference="lTM-fe-sFk"/>
-                                <exclude reference="DhE-iH-BRi"/>
-                                <exclude reference="Eok-Br-vLU"/>
-                                <exclude reference="Kba-KE-umc"/>
-                                <exclude reference="a26-Xp-zya"/>
-                                <exclude reference="cEk-9v-8xZ"/>
-                                <exclude reference="jwm-U0-iVF"/>
                                 <exclude reference="4nB-rW-vXz"/>
                                 <exclude reference="Cyx-LQ-yUO"/>
                                 <exclude reference="b3y-jD-gth"/>
@@ -804,9 +799,6 @@
                                 <exclude reference="gpO-pO-Etw"/>
                                 <exclude reference="jRq-ti-JWE"/>
                                 <exclude reference="ySg-o1-jRf"/>
-                                <exclude reference="fyL-pl-3Zc"/>
-                                <exclude reference="g35-n4-NJM"/>
-                                <exclude reference="gch-9q-LMe"/>
                                 <exclude reference="2Jl-Lk-D0k"/>
                                 <exclude reference="8fG-LX-PlJ"/>
                                 <exclude reference="FcG-5c-YVK"/>
@@ -816,6 +808,15 @@
                                 <exclude reference="bEa-rv-i4s"/>
                                 <exclude reference="o8H-d9-axO"/>
                                 <exclude reference="riF-kP-X6N"/>
+                                <exclude reference="fyL-pl-3Zc"/>
+                                <exclude reference="g35-n4-NJM"/>
+                                <exclude reference="gch-9q-LMe"/>
+                                <exclude reference="DhE-iH-BRi"/>
+                                <exclude reference="Eok-Br-vLU"/>
+                                <exclude reference="Kba-KE-umc"/>
+                                <exclude reference="a26-Xp-zya"/>
+                                <exclude reference="cEk-9v-8xZ"/>
+                                <exclude reference="jwm-U0-iVF"/>
                             </mask>
                         </variation>
                         <variation key="heightClass=regular">
@@ -835,12 +836,6 @@
                                 <include reference="TMu-9m-IiJ"/>
                                 <include reference="ZTJ-pA-Gdn"/>
                                 <include reference="lTM-fe-sFk"/>
-                                <include reference="DhE-iH-BRi"/>
-                                <include reference="Eok-Br-vLU"/>
-                                <include reference="Kba-KE-umc"/>
-                                <include reference="a26-Xp-zya"/>
-                                <include reference="cEk-9v-8xZ"/>
-                                <include reference="jwm-U0-iVF"/>
                                 <include reference="4nB-rW-vXz"/>
                                 <include reference="Cyx-LQ-yUO"/>
                                 <include reference="b3y-jD-gth"/>
@@ -848,9 +843,6 @@
                                 <include reference="gpO-pO-Etw"/>
                                 <include reference="jRq-ti-JWE"/>
                                 <include reference="ySg-o1-jRf"/>
-                                <include reference="fyL-pl-3Zc"/>
-                                <include reference="g35-n4-NJM"/>
-                                <include reference="gch-9q-LMe"/>
                                 <include reference="2Jl-Lk-D0k"/>
                                 <include reference="8fG-LX-PlJ"/>
                                 <include reference="FcG-5c-YVK"/>
@@ -860,6 +852,15 @@
                                 <include reference="bEa-rv-i4s"/>
                                 <include reference="o8H-d9-axO"/>
                                 <include reference="riF-kP-X6N"/>
+                                <include reference="fyL-pl-3Zc"/>
+                                <include reference="g35-n4-NJM"/>
+                                <include reference="gch-9q-LMe"/>
+                                <include reference="DhE-iH-BRi"/>
+                                <include reference="Eok-Br-vLU"/>
+                                <include reference="Kba-KE-umc"/>
+                                <include reference="a26-Xp-zya"/>
+                                <include reference="cEk-9v-8xZ"/>
+                                <include reference="jwm-U0-iVF"/>
                             </mask>
                         </variation>
                     </view>
