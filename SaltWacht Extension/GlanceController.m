@@ -48,7 +48,7 @@
             }];
             NSData *imData = [NSData dataWithContentsOfURL:[NSURL URLWithString:sortedArray[0][@"photos"][0][@"small_url"]]];
             [self.imageController setImageData:imData];
-            [self.label setText:sortedArray[0][@"photos"][0][@"name"] ];
+            [self.label setText:sortedArray[0][@"name"] ];
         }else{
             [self.label setText:@"No Connection"];
         }

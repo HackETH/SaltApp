@@ -28,6 +28,7 @@
     
 }
 
+
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
@@ -37,6 +38,7 @@
     
     // Perform any setup necessary in order to update the view.
     self.locmanager = [[CLLocationManager  alloc]init];
+    self.locmanager.delegate = self;
     NSUInteger code = [CLLocationManager authorizationStatus];
     if (code == kCLAuthorizationStatusNotDetermined && ([self.locmanager respondsToSelector:@selector(requestAlwaysAuthorization)] || [self.locmanager respondsToSelector:@selector(requestWhenInUseAuthorization)])) {
         // choose one request according to your business.
@@ -47,7 +49,7 @@
             NSLog(@"Info.plist does not contain NSLocationAlwaysUsageDescription or NSLocationWhenInUseUsageDescription");
         }
     }
-    [self.locmanager requestLocation];
+    //[self.locmanager requestLocation];
     NSString *address = [NSString stringWithFormat:@"http://www-saltapp.rhcloud.com/restaurants/discover?lat=%f&long=%f",self.locmanager.location.coordinate.latitude,self.locmanager.location.coordinate.longitude];
     if (self.locmanager.location.coordinate.latitude != 0.0) {
         AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
