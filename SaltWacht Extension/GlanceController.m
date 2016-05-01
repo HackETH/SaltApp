@@ -21,7 +21,6 @@
     [super awakeWithContext:context];
     
     // Configure interface objects here.
-    NSError* error = nil; //do it always
     
     self.locmanager = [[CLLocationManager  alloc]init];
     
@@ -51,22 +50,32 @@
             [self.label setText:sortedArray[0][@"name"] ];
         }else{
             [self.label setText:@"No Connection"];
+            [self.imageController setImageNamed:@"Not Found"];
         }
         
     }else{
         [self.label setText:@"Allow Location"];
+        [self.imageController setImageNamed:@"Not Found"];
+
     }
 }
 - (void)locationManager:(CLLocationManager *)manager didFailWithError:(NSError *)error {
     // Error here if no location can be found
     NSLog(@"fail");
     [self.label setText:@"Allow Location"];
+    [self.imageController setImageNamed:@"Not Found"];
+
 
 }
 
 - (void)willActivate {
     // This method is called when watch view controller is about to be visible to user
     [super willActivate];
+    
+    
+    [self.locmanager  requestWhenInUseAuthorization];
+    self.locmanager.delegate = self;
+    [self.locmanager requestLocation];
 }
 
 - (void)didDeactivate {

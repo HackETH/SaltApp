@@ -58,7 +58,7 @@
                         </group>
                         <group alignment="left" id="eew-Gs-W6Y">
                             <items>
-                                <imageView width="119" height="116" alignment="left" image="Drink" id="hmw-gl-lUt"/>
+                                <imageView width="100" height="100" alignment="center" verticalAlignment="center" image="Drink" contentMode="scaleAspectFill" id="hmw-gl-lUt"/>
                             </items>
                         </group>
                     </items>
