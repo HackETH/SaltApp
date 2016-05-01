@@ -93,8 +93,14 @@
 
 - (void)willActivate {
     // This method is called when watch view controller is about to be visible to user
+    if (self.locmanager) {
+        [self.locmanager  requestWhenInUseAuthorization];
+        
+        self.locmanager.delegate = self;
+        [self.locmanager requestLocation];
+        [super willActivate];
+    }
     
-    [super willActivate];
 }
 
 - (void)didDeactivate {
