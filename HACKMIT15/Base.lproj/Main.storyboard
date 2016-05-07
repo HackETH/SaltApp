@@ -319,7 +319,9 @@
                                                     <variation key="heightClass=regular" constant="-16"/>
                                                 </constraint>
                                                 <constraint firstItem="ZGX-wd-LZ1" firstAttribute="leading" secondItem="5mV-lo-Vmb" secondAttribute="leadingMargin" constant="-8" id="3wf-Tj-MHM"/>
-                                                <constraint firstItem="VXq-9W-zj3" firstAttribute="top" secondItem="5mV-lo-Vmb" secondAttribute="topMargin" constant="-8" id="5fx-8W-FUw"/>
+                                                <constraint firstItem="VXq-9W-zj3" firstAttribute="top" secondItem="5mV-lo-Vmb" secondAttribute="topMargin" constant="-8" id="5fx-8W-FUw">
+                                                    <variation key="heightClass=regular" constant="-8"/>
+                                                </constraint>
                                                 <constraint firstItem="Lub-os-hLK" firstAttribute="top" secondItem="VXq-9W-zj3" secondAttribute="bottom" constant="8" id="6Js-FI-TnE"/>
                                                 <constraint firstItem="HV9-PV-CXO" firstAttribute="top" secondItem="9nz-Vg-6Xw" secondAttribute="bottom" constant="5" id="99U-xm-8KI"/>
                                                 <constraint firstItem="trF-6w-mZq" firstAttribute="leading" secondItem="5mV-lo-Vmb" secondAttribute="leadingMargin" constant="-8" id="9ku-G3-rlb"/>
@@ -396,7 +398,9 @@
                                                     <variation key="heightClass=regular" constant="-16"/>
                                                 </constraint>
                                                 <constraint firstItem="Z0F-AB-QwM" firstAttribute="top" secondItem="Lub-os-hLK" secondAttribute="bottom" constant="5" id="rzQ-4i-R9Y"/>
-                                                <constraint firstItem="VXq-9W-zj3" firstAttribute="leading" secondItem="5mV-lo-Vmb" secondAttribute="leadingMargin" constant="-8" id="uU6-gy-U2m"/>
+                                                <constraint firstItem="VXq-9W-zj3" firstAttribute="leading" secondItem="5mV-lo-Vmb" secondAttribute="leadingMargin" constant="-8" id="uU6-gy-U2m">
+                                                    <variation key="heightClass=regular" constant="-8"/>
+                                                </constraint>
                                                 <constraint firstItem="USi-UC-TFP" firstAttribute="leading" secondItem="5mV-lo-Vmb" secondAttribute="leadingMargin" constant="2" id="vPm-aK-xWt"/>
                                                 <constraint firstItem="aJN-nb-ic5" firstAttribute="leading" secondItem="5mV-lo-Vmb" secondAttribute="leadingMargin" constant="2" id="wfc-vR-7Sc"/>
                                                 <constraint firstItem="ZGX-wd-LZ1" firstAttribute="top" secondItem="OEp-Sj-bdQ" secondAttribute="bottom" constant="34" id="woq-JF-een">

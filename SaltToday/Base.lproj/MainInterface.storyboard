@@ -21,7 +21,7 @@
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="top" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Loading..." lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="280" translatesAutoresizingMaskIntoConstraints="NO" id="ECv-G6-d27">
                                 <rect key="frame" x="20" y="71" width="275" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="lightTextColor"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="0.59999999999999998" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="nBg-Ur-9SX">
@@ -57,22 +57,21 @@
                         </subviews>
                         <constraints>
                             <constraint firstItem="ECv-G6-d27" firstAttribute="top" secondItem="q8F-eQ-8VF" secondAttribute="bottom" constant="7" id="9eX-WJ-q4b"/>
+                            <constraint firstItem="nBg-Ur-9SX" firstAttribute="leading" secondItem="u4s-B5-com" secondAttribute="leadingMargin" constant="-1" id="9lI-XW-Bbl"/>
                             <constraint firstItem="WNV-6Z-4qi" firstAttribute="top" secondItem="ECv-G6-d27" secondAttribute="bottom" constant="8" symbolic="YES" id="NFX-OL-DqS"/>
-                            <constraint firstItem="LyN-jQ-GIz" firstAttribute="leading" secondItem="nBg-Ur-9SX" secondAttribute="trailing" constant="8" symbolic="YES" id="TrY-g5-XOB"/>
                             <constraint firstItem="nBg-Ur-9SX" firstAttribute="leading" secondItem="u4s-B5-com" secondAttribute="leadingMargin" constant="3" id="UJ9-T8-xge"/>
                             <constraint firstItem="ECv-G6-d27" firstAttribute="top" secondItem="caQ-kd-77G" secondAttribute="bottom" constant="8" symbolic="YES" id="V23-lY-c58"/>
                             <constraint firstItem="q8F-eQ-8VF" firstAttribute="top" secondItem="LyN-jQ-GIz" secondAttribute="top" id="Y6S-Wx-8EI"/>
                             <constraint firstItem="caQ-kd-77G" firstAttribute="top" secondItem="6Ym-81-SZn" secondAttribute="bottom" constant="7" id="Yss-Oy-uuN"/>
                             <constraint firstItem="nBg-Ur-9SX" firstAttribute="top" secondItem="LyN-jQ-GIz" secondAttribute="top" id="bCc-5b-j4O"/>
                             <constraint firstItem="q8F-eQ-8VF" firstAttribute="leading" secondItem="caQ-kd-77G" secondAttribute="trailing" constant="8" symbolic="YES" id="bNt-9d-EAZ"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="q8F-eQ-8VF" secondAttribute="trailing" constant="37" id="dHW-D1-pRj"/>
                             <constraint firstItem="ECv-G6-d27" firstAttribute="leading" secondItem="u4s-B5-com" secondAttribute="leadingMargin" constant="4" id="elo-eb-pDj"/>
                             <constraint firstItem="caQ-kd-77G" firstAttribute="leading" secondItem="u4s-B5-com" secondAttribute="leading" constant="147" id="fpS-Pn-61Q"/>
                             <constraint firstItem="q8F-eQ-8VF" firstAttribute="bottom" secondItem="LyN-jQ-GIz" secondAttribute="bottom" id="ib0-YY-98X"/>
                             <constraint firstAttribute="trailingMargin" secondItem="ECv-G6-d27" secondAttribute="trailing" constant="9" id="jTJ-yA-LcM"/>
-                            <constraint firstItem="caQ-kd-77G" firstAttribute="leading" secondItem="LyN-jQ-GIz" secondAttribute="trailing" constant="8" symbolic="YES" id="jnr-Vb-6LQ"/>
                             <constraint firstItem="LyN-jQ-GIz" firstAttribute="top" secondItem="6Ym-81-SZn" secondAttribute="bottom" constant="8" symbolic="YES" id="oOd-Jz-W4s"/>
                             <constraint firstItem="nBg-Ur-9SX" firstAttribute="bottom" secondItem="LyN-jQ-GIz" secondAttribute="bottom" id="oz0-Bs-rN0"/>
+                            <constraint firstItem="LyN-jQ-GIz" firstAttribute="leading" secondItem="nBg-Ur-9SX" secondAttribute="trailing" constant="8" id="s26-Z9-KhX"/>
                         </constraints>
                     </view>
                     <extendedEdge key="edgesForExtendedLayout"/>

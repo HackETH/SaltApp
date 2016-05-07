@@ -468,7 +468,8 @@
              }
          }];
         [[cell.mainImageScrollView subviews] makeObjectsPerformSelector:@selector(removeFromSuperview)];
-        cell.mainImageScrollView.contentSize = CGSizeMake(self.view.frame.size.width*((NSArray *)cell.cellData[@"photos"]).count, cell.mainImageScrollView.frame.size.height);
+        CGFloat dWidth = self.view.frame.size.width+8;
+        cell.mainImageScrollView.contentSize = CGSizeMake(dWidth*((NSArray *)cell.cellData[@"photos"]).count, cell.mainImageScrollView.frame.size.height);
         cell.mainImageScrollView.scrollEnabled = YES;
         cell.mainImageScrollView.pagingEnabled = YES;
         cell.mainImageScrollView.contentOffset = CGPointMake(0, 0);
@@ -490,9 +491,10 @@
         [cell.mapView removeAnnotation:me];
         NSInteger offset = 0;
         [[cell.mainImageScrollView subviews] makeObjectsPerformSelector:@selector(removeFromSuperview)];
+        //self.view.frame.size.width;//hier
 
         for (NSDictionary *picData in cell.cellData[@"photos"]) {
-            UIImageView *imageView = [[UIImageView alloc]initWithFrame:CGRectMake((CGFloat)offset, 0, self.view.frame.size.width, self.view.frame.size.width)];
+            UIImageView *imageView = [[UIImageView alloc]initWithFrame:CGRectMake((CGFloat)offset, 0, dWidth, dWidth)];
             //[imageView setImageWithURL:[NSURL URLWithString:picData[@"url"]]];
             [imageView setImageWithURL:[NSURL URLWithString:picData[@"url"]] placeholderImage:[UIImage imageNamed:@"Placeholder"]];
             
@@ -538,7 +540,7 @@
             [imageView addSubview:button];
             
             [cell.mainImageScrollView addSubview:imageView];
-            offset=offset + (NSInteger)(self.view.frame.size.width);
+            offset=offset + (NSInteger)dWidth;
         }
         cell.startOffset = offset;
         cell.mainImageScrollView.contentOffset = CGPointMake(((NSNumber *)cell.cellData[@"offset"]).doubleValue, 0.f);
